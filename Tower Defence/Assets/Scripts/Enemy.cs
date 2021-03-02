@@ -17,16 +17,6 @@ public class Enemy : MonoBehaviour {
         navAgent.destination = endPoint;
     }
 
-    void Update()
-    {
-        /*
-        if(Vector3.Distance(gameObject.transform.position,endPoint) < 2f)
-        {
-            Debug.Log("Health: " + Health + " | Damage: " + Damage);
-            Destroy(gameObject);
-        }*/
-    }
-
     /// <summary>
     /// Initializing the enemy script
     /// </summary>
