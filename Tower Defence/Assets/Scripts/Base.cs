@@ -11,11 +11,7 @@ public class Base : MonoBehaviour
     {
         Health = 100;
     }
-    void Update()
-    {
-        Debug.Log(Health);
-    }
-    
+
     public void Initialize(int health, int currency)
     {
         Health = health;
