@@ -24,14 +24,17 @@ public class Base : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (Health > damage)
+        {
             Health -= damage;
+            UIManager.Instance.UpdateHealth(Health);
+        }
         else
             Death();
     }
     void Death()
     {
         Health = 0;
-        Destroy(gameObject);
-        //GameOver
+        UIManager.Instance.UpdateHealth(Health);
+        GameOver.Instance.Death();
     }
 }

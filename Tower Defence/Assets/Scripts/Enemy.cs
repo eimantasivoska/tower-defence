@@ -9,12 +9,14 @@ public class Enemy : MonoBehaviour {
 
     NavMeshAgent navAgent;
 
-    Vector3 endPoint = new Vector3(-12.4f, 0f, 3.79f);
+    [SerializeField]
+    GameObject endPoint;
 
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        navAgent.destination = endPoint;
+        //navAgent.destination = endPoint.transform.position;
+        navAgent.destination = new Vector3(-18f, 0f, 4f);
     }
 
     /// <summary>
