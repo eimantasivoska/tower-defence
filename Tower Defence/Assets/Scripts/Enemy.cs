@@ -9,14 +9,10 @@ public class Enemy : MonoBehaviour {
 
     NavMeshAgent navAgent;
 
-    [SerializeField]
-    GameObject endPoint;
-
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        //navAgent.destination = endPoint.transform.position;
-        navAgent.destination = new Vector3(-18f, 0f, 4f);
+        navAgent.SetDestination(GameObject.Find("DeathBox").transform.position);
     }
 
     /// <summary>
