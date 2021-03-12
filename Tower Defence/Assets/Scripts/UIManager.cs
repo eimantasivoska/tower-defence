@@ -9,12 +9,16 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI healthText;
     [SerializeField]
     GameObject rangeSpherePrefab;
+    [SerializeField]
+    GameObject[] TowerPrefabs;
 
     GameObject rangeSphere;
 
     Node selected;
 
-    public Vector3 offset;
+    public Vector3 rangeObjectOffset;
+
+
 
     void Awake()
     {
@@ -49,8 +53,12 @@ public class UIManager : MonoBehaviour
             selected = node;
             if (rangeSphere != null)
                 Destroy(rangeSphere);
-            rangeSphere = Instantiate(rangeSpherePrefab, selected.gameObject.transform.position + offset, selected.gameObject.transform.rotation);
+            rangeSphere = Instantiate(rangeSpherePrefab, selected.gameObject.transform.position + rangeObjectOffset, selected.gameObject.transform.rotation);
             rangeSphere.GetComponent<Range>().DisplayRange(Random.Range(20f, 35f));
         }
+    }
+    public void OnTowerButtonClick(int i)
+    {
+        selected.GetComponent<Node>().tower = Instantiate(TowerPrefabs[i], selected.gameObject.transform.position, selected.gameObject.transform.rotation);
     }
 }

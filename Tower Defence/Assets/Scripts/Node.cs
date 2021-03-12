@@ -35,6 +35,7 @@ public class Node : MonoBehaviour
             else
                 Select();
         }
+
     }
 
     void OnMouseEnter()
