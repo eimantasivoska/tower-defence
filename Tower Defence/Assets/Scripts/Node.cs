@@ -23,26 +23,28 @@ public class Node : MonoBehaviour
 
     void OnMouseDown()
     {
-        string msg = transform.position + " cell is "+ ((gameObject.tag == "Buildable") ? "" : "not ") + "buildable";
-        msg += "\nIt does " + ((tower == null) ? "not " : "") + " have a tower";
-        //if (gameObject.tag != "Buildable")
-        //    return;
-        Debug.Log(msg);
-        if (isSelected)
-            UIManager.Instance.OnNodeSelected(null);
-        else
-            Select();
+        if (Time.timeScale == 1) {
+            string msg = transform.position + " cell is " + ((gameObject.tag == "Buildable") ? "" : "not ") + "buildable";
+            msg += "\nIt does " + ((tower == null) ? "not " : "") + " have a tower";
+            //if (gameObject.tag != "Buildable")
+            //    return;
+            Debug.Log(msg);
+            if (isSelected)
+                UIManager.Instance.OnNodeSelected(null);
+            else
+                Select();
+        }
     }
 
     void OnMouseEnter()
     {
-        if(!isSelected)
+        if(!isSelected && Time.timeScale == 1)
             r.material.color = HoverColor;
     }
 
     void OnMouseExit()
     {
-        if(!isSelected)
+        if(!isSelected && Time.timeScale == 1)
             r.material.color = startColor;
     }
 

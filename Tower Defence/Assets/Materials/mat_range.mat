@@ -28,6 +28,7 @@ Material:
     - Vector1_4001ED62: 4
     - Vector1_4527218F: 0.02
     - Vector1_7D362426: 1.18
-    - Vector1_9B104596: 2
+    - Vector1_9B104596: 1.5
+    - Vector1_A8CA256E: 0.2
     m_Colors:
     - Color_F19A9D18: {r: 0, g: 2.0319426, b: 10.80666, a: 1}

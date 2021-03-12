@@ -50,6 +50,7 @@ public class UIManager : MonoBehaviour
             if (rangeSphere != null)
                 Destroy(rangeSphere);
             rangeSphere = Instantiate(rangeSpherePrefab, selected.gameObject.transform.position + offset, selected.gameObject.transform.rotation);
+            rangeSphere.GetComponent<Range>().DisplayRange(Random.Range(20f, 35f));
         }
     }
 }
