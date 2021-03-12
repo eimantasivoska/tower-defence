@@ -44,29 +44,40 @@ public class UIManager : MonoBehaviour
 
     public void OnNodeSelected(Node node)
     {
+        ClearRange();
         if (selected != null)
             selected.Deselect();
         if (node == null)
         {
-            if(rangeSphere != null)
-                Destroy(rangeSphere);
             ToggleMenu(false);
             selected = null;
         }
         else
         {
             selected = node;
-            if (rangeSphere != null)
-                Destroy(rangeSphere);
-            rangeSphere = Instantiate(rangeSpherePrefab, selected.gameObject.transform.position + rangeObjectOffset, selected.gameObject.transform.rotation);
-            rangeSphere.GetComponent<Range>().DisplayRange(Random.Range(20f, 35f));
             ToggleMenu(true);
         }
     }
+
     public void OnTowerButtonClick(int i)
     {
         selected.GetComponent<Node>().tower = Instantiate(TowerPrefabs[i], selected.gameObject.transform.position, selected.gameObject.transform.rotation);
+        ClearRange();
+        ToggleMenu(true);
     }
+
+    public void DisplayRange(float range)
+    {
+        rangeSphere = Instantiate(rangeSpherePrefab, selected.gameObject.transform.position + rangeObjectOffset, selected.gameObject.transform.rotation);
+        rangeSphere.GetComponent<Range>().DisplayRange(range);
+    }
+
+    public void ClearRange()
+    {
+        if (rangeSphere != null)
+            Destroy(rangeSphere);
+    }
+
     private void ToggleMenu(bool show)
     {
         if (show)
