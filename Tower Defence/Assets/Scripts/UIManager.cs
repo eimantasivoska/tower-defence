@@ -50,8 +50,8 @@ public class UIManager : MonoBehaviour
         {
             if(rangeSphere != null)
                 Destroy(rangeSphere);
-            selected = null;
             ToggleMenu(false);
+            selected = null;
         }
         else
         {
@@ -69,15 +69,23 @@ public class UIManager : MonoBehaviour
     }
     private void ToggleMenu(bool show)
     {
-        if (selected.tower == null)
+        if (show)
         {
-            buildPanel.SetActive(show);
-            infoPanel.SetActive(!show);
+            if (selected.tower == null)
+            {
+                buildPanel.SetActive(show);
+                infoPanel.SetActive(!show);
+            }
+            else
+            {
+                buildPanel.SetActive(!show);
+                infoPanel.SetActive(show);
+            }
         }
         else
         {
-            buildPanel.SetActive(!show);
-            infoPanel.SetActive(show);
+            buildPanel.SetActive(false);
+            infoPanel.SetActive(false);
         }
     }
 }
