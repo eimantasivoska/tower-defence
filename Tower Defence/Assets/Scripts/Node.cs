@@ -25,6 +25,8 @@ public class Node : MonoBehaviour
     {
         string msg = transform.position + " cell is "+ ((gameObject.tag == "Buildable") ? "" : "not ") + "buildable";
         msg += "\nIt does " + ((tower == null) ? "not " : "") + " have a tower";
+        //if (gameObject.tag != "Buildable")
+        //    return;
         Debug.Log(msg);
         if (isSelected)
             UIManager.Instance.OnNodeSelected(null);

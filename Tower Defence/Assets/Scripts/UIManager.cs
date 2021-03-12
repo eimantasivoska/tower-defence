@@ -7,8 +7,14 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI healthText;
+    [SerializeField]
+    GameObject rangeSpherePrefab;
+
+    GameObject rangeSphere;
 
     Node selected;
+
+    public Vector3 offset;
 
     void Awake()
     {
@@ -30,8 +36,20 @@ public class UIManager : MonoBehaviour
 
     public void OnNodeSelected(Node node)
     {
-        if(selected != null)
+        if (selected != null)
             selected.Deselect();
-        selected = node;
+        if (node == null)
+        {
+            if(rangeSphere != null)
+                Destroy(rangeSphere);
+            selected = null;
+        }
+        else
+        {
+            selected = node;
+            if (rangeSphere != null)
+                Destroy(rangeSphere);
+            rangeSphere = Instantiate(rangeSpherePrefab, selected.gameObject.transform.position + offset, selected.gameObject.transform.rotation);
+        }
     }
 }
