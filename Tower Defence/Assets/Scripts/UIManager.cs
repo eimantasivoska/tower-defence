@@ -16,9 +16,13 @@ public class UIManager : MonoBehaviour
 
     Node selected;
 
+    [SerializeField]
+    GameObject buildPanel;
+
+    [SerializeField]
+    GameObject infoPanel;
+
     public Vector3 rangeObjectOffset;
-
-
 
     void Awake()
     {
@@ -47,6 +51,7 @@ public class UIManager : MonoBehaviour
             if(rangeSphere != null)
                 Destroy(rangeSphere);
             selected = null;
+            ToggleMenu(false);
         }
         else
         {
@@ -55,12 +60,24 @@ public class UIManager : MonoBehaviour
                 Destroy(rangeSphere);
             rangeSphere = Instantiate(rangeSpherePrefab, selected.gameObject.transform.position + rangeObjectOffset, selected.gameObject.transform.rotation);
             rangeSphere.GetComponent<Range>().DisplayRange(Random.Range(20f, 35f));
+            ToggleMenu(true);
         }
     }
     public void OnTowerButtonClick(int i)
     {
-        //IF MAY CAUSE PROBLEMS WITH GITHUB
-        if(selected.GetComponent<Node>().tower == null)
         selected.GetComponent<Node>().tower = Instantiate(TowerPrefabs[i], selected.gameObject.transform.position, selected.gameObject.transform.rotation);
+    }
+    private void ToggleMenu(bool show)
+    {
+        if (selected.tower == null)
+        {
+            buildPanel.SetActive(show);
+            infoPanel.SetActive(!show);
+        }
+        else
+        {
+            buildPanel.SetActive(!show);
+            infoPanel.SetActive(show);
+        }
     }
 }
