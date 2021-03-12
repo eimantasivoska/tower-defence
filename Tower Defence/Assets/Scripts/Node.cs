@@ -21,6 +21,33 @@ public class Node : MonoBehaviour
         startColor = r.material.color;
     }
 
+    void OnMouseDown()
+    {
+        if (Time.timeScale == 1) {
+            string msg = transform.position + " cell is " + ((gameObject.tag == "Buildable") ? "" : "not ") + "buildable";
+            msg += "\nIt does " + ((tower == null) ? "not " : "") + " have a tower";
+            //if (gameObject.tag != "Buildable")
+            //    return;
+            Debug.Log(msg);
+            if (isSelected)
+                UIManager.Instance.OnNodeSelected(null);
+            else
+                Select();
+        }
+    }
+
+    void OnMouseEnter()
+    {
+        if(!isSelected && Time.timeScale == 1)
+            r.material.color = HoverColor;
+    }
+
+    void OnMouseExit()
+    {
+        if(!isSelected && Time.timeScale == 1)
+            r.material.color = startColor;
+    }
+
     void Select()
     {
         isSelected = true;
@@ -32,33 +59,5 @@ public class Node : MonoBehaviour
     {
         isSelected = false;
         r.material.color = startColor;
-    }
-
-    public void OnEnter()
-    {
-        if (!isSelected && Time.timeScale == 1)
-            r.material.color = HoverColor;
-    }
-
-    public void OnExit()
-    {
-        if (!isSelected && Time.timeScale == 1)
-            r.material.color = startColor;
-    }
-
-    public void OnClick()
-    {
-        if (Time.timeScale == 1)
-        {
-            string msg = transform.position + " cell is " + ((gameObject.tag == "Buildable") ? "" : "not ") + "buildable";
-            msg += "\nIt does " + ((tower == null) ? "not " : "") + " have a tower";
-            //if (gameObject.tag != "Buildable")
-            //    return;
-            Debug.Log(msg);
-            if (isSelected)
-                UIManager.Instance.OnNodeSelected(null);
-            else
-                Select();
-        }
     }
 }
