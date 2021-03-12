@@ -59,8 +59,6 @@ public class UIManager : MonoBehaviour
     }
     public void OnTowerButtonClick(int i)
     {
-        //IF MAY CAUSE PROBLEMS WITH GITHUB
-        if(selected.GetComponent<Node>().tower == null)
         selected.GetComponent<Node>().tower = Instantiate(TowerPrefabs[i], selected.gameObject.transform.position, selected.gameObject.transform.rotation);
     }
 }
