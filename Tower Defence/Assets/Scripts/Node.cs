@@ -2,7 +2,7 @@
 
 public class Node : MonoBehaviour
 {
-    GameObject tower;
+    public GameObject tower;
     Renderer r;
 
     [SerializeField]
@@ -23,7 +23,8 @@ public class Node : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (Time.timeScale == 1) {
+        if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
             string msg = transform.position + " cell is " + ((gameObject.tag == "Buildable") ? "" : "not ") + "buildable";
             msg += "\nIt does " + ((tower == null) ? "not " : "") + " have a tower";
             //if (gameObject.tag != "Buildable")
@@ -38,13 +39,14 @@ public class Node : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if(!isSelected && Time.timeScale == 1)
-            r.material.color = HoverColor;
+        if(!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            if(!isSelected)
+                r.material.color = HoverColor;
     }
 
     void OnMouseExit()
     {
-        if(!isSelected && Time.timeScale == 1)
+        if (!isSelected)
             r.material.color = startColor;
     }
 
