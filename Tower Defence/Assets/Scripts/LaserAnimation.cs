@@ -11,6 +11,31 @@ public class LaserAnimation : MonoBehaviour
     {
         laser = GetComponent<LineRenderer>();
         laser.SetPosition(0, gameObject.transform.position + offset);
+        //// TODO REMOVE THIS DOODOO
+        ///        //// TODO REMOVE THIS DOODOO
+        ///                //// TODO REMOVE THIS DOODOO
+        ///                        //// TODO REMOVE THIS DOODOO
+        ///                                //// TODO REMOVE THIS DOODOO
+        ///                                        //// TODO REMOVE THIS DOODOO
+        ///                                                //// TODO REMOVE THIS DOODOO
+        ///                                                        //// TODO REMOVE THIS DOODOO
+        ///                                                                //// TODO REMOVE THIS DOODOO
+        ///                                                                        //// TODO REMOVE THIS DOODOO
+        ///                                                                        
+        ///                                                
+        ///                                                        //// TODO REMOVE THIS DOODOO
+        ///                                                        //// TODO REMOVE THIS DOODOO
+        ///                                                v
+        ///                                                        //// TODO REMOVE THIS DOODOO
+        ///                                                        //// TODO REMOVE THIS DOODOO
+        ///                                        //// TODO REMOVE THIS DOODOO
+        ///                        
+        ///                                //// TODO REMOVE THIS DOODOO
+        ///                                //// TODO REMOVE THIS DOODOO
+        ///                                //// TODO REMOVE THIS DOODOO
+        ///                                //// TODO REMOVE THIS DOODOO
+        ///                        //// TODO REMOVE THIS DOODOO
+        ///        //// TODO REMOVE THIS DOODOO
     }
 
     // Update is called once per frame

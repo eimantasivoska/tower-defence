@@ -27,7 +27,6 @@ public abstract class Tower : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            Debug.Log("PLS");
             Enemies.Remove(col.gameObject);
         }
     }
