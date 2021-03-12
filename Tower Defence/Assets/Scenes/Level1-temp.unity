@@ -1992,7 +1992,7 @@ MonoBehaviour:
   rangeSpherePrefab: {fileID: 8972575618377283326, guid: 5526ed142ee49414c9433bd434749ba6,
     type: 3}
   TowerPrefabs:
-  - {fileID: 8058520086208248594, guid: bb064551af5640a42b049d4e579f806a, type: 3}
+  - {fileID: 6685175525663610590, guid: acd87ff5de4445949993990cf5855d08, type: 3}
   - {fileID: 8058520086208248594, guid: 797bc2d6a20e43b4aa939688700ea456, type: 3}
   - {fileID: 8058520086208248594, guid: 4509f694f814964489457ecfc6c8e85e, type: 3}
   rangeObjectOffset: {x: 0, y: 1, z: 0}
