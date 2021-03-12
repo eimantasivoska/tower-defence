@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour
     public void DisplayRange(float range)
     {
         rangeSphere = Instantiate(rangeSpherePrefab, selected.gameObject.transform.position + rangeObjectOffset, selected.gameObject.transform.rotation);
-        rangeSphere.GetComponent<Range>().DisplayRange(range);
+        rangeSphere.GetComponent<Range>().DisplayRange(range + 5);
     }
 
     public void ClearRange()
