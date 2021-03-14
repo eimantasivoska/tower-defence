@@ -9,7 +9,7 @@ public class LaserTower : Tower
 
     protected override void AttackEnemy(GameObject Enemy)
     {
-        laser.SetPosition(1, Enemy.transform.position);
+        laser.SetPosition(1, Enemy.transform.position+offset/2.5f);
     }
 
     protected override void Initialize()
