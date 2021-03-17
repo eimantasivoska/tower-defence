@@ -27,11 +27,9 @@ public class Enemy : MonoBehaviour {
     }
     public void TakeDamage(float amount){
         Health -= amount;
-        if(Health <= 0)
-            Destroy(gameObject);
-    }
-
-    ~Enemy(){
-        // Handle death
+        if(Health <= 0){
+            //Destroy(gameObject);
+            Debug.Log(gameObject.name + " dead, but not destroyed");
+        }
     }
 }
