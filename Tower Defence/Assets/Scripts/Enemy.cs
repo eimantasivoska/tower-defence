@@ -4,8 +4,8 @@ using UnityEngine.AI;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour { 
-    public int Health { private set; get; }
-    public int Damage { private set; get; }
+    public float Health { private set; get; }
+    public float Damage { private set; get; }
 
     NavMeshAgent navAgent;
 
@@ -20,9 +20,18 @@ public class Enemy : MonoBehaviour {
     /// </summary>
     /// <param name="health">Health points</param>
     /// <param name="damage">Damage</param>
-    public void Initialize(int health, int damage)
+    public void Initialize(float health, float damage)
     {
         Health = health;
         Damage = damage;
+    }
+    public void TakeDamage(float amount){
+        Health -= amount;
+        if(Health <= 0)
+            Destroy(gameObject);
+    }
+
+    ~Enemy(){
+        // Handle death
     }
 }

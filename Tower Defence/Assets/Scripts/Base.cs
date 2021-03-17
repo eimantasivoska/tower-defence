@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Base : MonoBehaviour
 {
-    public int Health  {get; private set;}
+    public float Health  {get; private set;}
     public int Currency { get; private set; }
 
     void Start()
@@ -17,12 +17,12 @@ public class Base : MonoBehaviour
         Health = health;
         Currency = currency;
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (Health > damage)
         {
             Health -= damage;
-            UIManager.Instance.UpdateHealth(Health);
+            UIManager.Instance.UpdateHealth((int)Health);
         }
         else
             Death();
@@ -30,7 +30,7 @@ public class Base : MonoBehaviour
     void Death()
     {
         Health = 0;
-        UIManager.Instance.UpdateHealth(Health);
+        UIManager.Instance.UpdateHealth((int)Health);
         GameOver.Instance.Death();
     }
 }

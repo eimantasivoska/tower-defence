@@ -61,9 +61,12 @@ public class UIManager : MonoBehaviour
 
     public void OnTowerButtonClick(int i)
     {
-        selected.GetComponent<Node>().tower = Instantiate(TowerPrefabs[i], selected.gameObject.transform.position, selected.gameObject.transform.rotation);
-        ClearRange();
-        ToggleMenu(true);
+        Node clicked = selected.GetComponent<Node>();
+        if(clicked.isBuildable){
+            clicked.tower = Instantiate(TowerPrefabs[i], selected.gameObject.transform.position, selected.gameObject.transform.rotation);
+            ClearRange();
+            ToggleMenu(true);
+        }
     }
 
     public void DisplayRange(float range)
@@ -91,6 +94,7 @@ public class UIManager : MonoBehaviour
             {
                 buildPanel.SetActive(!show);
                 infoPanel.SetActive(show);
+                DisplayRange(15f);
             }
         }
         else

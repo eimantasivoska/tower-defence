@@ -14,9 +14,11 @@ public class Node : MonoBehaviour
     Color startColor;
 
     bool isSelected = false;
+    public bool isBuildable {get;private set;}
 
     void Start()
     {
+        isBuildable = (gameObject.tag == "Buildable");
         r = GetComponent<Renderer>();
         startColor = r.material.color;
     }
@@ -25,6 +27,9 @@ public class Node : MonoBehaviour
     {
         if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
+            if(!isBuildable){
+                return;
+            }
             string msg = transform.position + " cell is " + ((gameObject.tag == "Buildable") ? "" : "not ") + "buildable";
             msg += "\nIt does " + ((tower == null) ? "not " : "") + " have a tower";
             //if (gameObject.tag != "Buildable")
@@ -41,7 +46,7 @@ public class Node : MonoBehaviour
     void OnMouseEnter()
     {
         if(!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-            if(!isSelected)
+            if(!isSelected && isBuildable)
                 r.material.color = HoverColor;
     }
 

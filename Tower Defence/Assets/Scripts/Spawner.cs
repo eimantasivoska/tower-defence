@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(time);
         Enemy e = Instantiate(enemy, gameObject.transform).GetComponent<Enemy>();
         System.Random r = new System.Random();
-        e.Initialize(10, 10);
+        e.Initialize(10f, 10f);
         StartCoroutine(Spawn(time));
     }
 }
