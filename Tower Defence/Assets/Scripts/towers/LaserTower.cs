@@ -9,13 +9,18 @@ public class LaserTower : Tower
 
     protected override void AttackEnemy(GameObject Enemy)
     {
-        laser.SetPosition(1, Enemy.transform.position+offset/2.5f);
+        if (Enemy != null)
+        {
+            laser.SetPosition(1, Enemy.transform.position + offset / 2.5f);
+            Enemy e = Enemy.GetComponent<Enemy>();
+            e.TakeDamage(Damage);
+        }
     }
 
     protected override void Initialize()
     {
-        Damage = 1;
-        AttackCooldown = 0.001f;
+        Damage = 0.05f;
+        AttackCooldown = 0.015f;
         laser = GetComponent<LineRenderer>();
         laser.SetPosition(0, gameObject.transform.position + offset);
         laser.SetPosition(1, gameObject.transform.position + offset);

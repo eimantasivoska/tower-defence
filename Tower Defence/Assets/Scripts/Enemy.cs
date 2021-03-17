@@ -9,10 +9,13 @@ public class Enemy : MonoBehaviour {
 
     NavMeshAgent navAgent;
 
+    protected List<GameObject> Towers;
+
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.SetDestination(GameObject.Find("DeathBox").transform.position);
+        Towers = new List<GameObject>();
     }
 
     /// <summary>
@@ -28,8 +31,29 @@ public class Enemy : MonoBehaviour {
     public void TakeDamage(float amount){
         Health -= amount;
         if(Health <= 0){
-            //Destroy(gameObject);
-            Debug.Log(gameObject.name + " dead, but not destroyed");
+            Die();
         }
+    }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Tower")
+        {
+            Towers.Add(col.gameObject);
+        }
+    }
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Tower")
+        {
+            Towers.Remove(col.gameObject);
+        }
+    }
+    private void Die()
+    {
+        foreach(GameObject t in Towers)
+        {
+            t.GetComponent<Tower>().SetDead(gameObject);
+        }
+        Destroy(gameObject);
     }
 }

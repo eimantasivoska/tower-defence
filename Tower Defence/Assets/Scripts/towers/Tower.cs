@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Tower : MonoBehaviour
 {
     protected enum AttackMode { First, Last }
-    protected int Damage;
+    protected float Damage;
     protected float AttackCooldown;
     AttackMode Mode;
     protected List<GameObject> Enemies;
@@ -53,6 +53,10 @@ public abstract class Tower : MonoBehaviour
         SelectEnemy();
         yield return new WaitForSeconds(AttackCooldown);
         StartCoroutine(Attack());
+    }
+    public void SetDead(GameObject enemy)
+    {
+        Enemies.Remove(enemy);
     }
 
 }
