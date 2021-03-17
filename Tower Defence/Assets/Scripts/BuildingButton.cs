@@ -26,7 +26,7 @@ public class BuildingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        UIManager.Instance.DisplayRange(range);
+        UIManager.Instance.DisplayRange(range * 2);
     }
 
     public void OnPointerExit(PointerEventData eventData)

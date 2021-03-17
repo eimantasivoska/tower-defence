@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
     public void DisplayRange(float range)
     {
         rangeSphere = Instantiate(rangeSpherePrefab, selected.gameObject.transform.position + rangeObjectOffset, selected.gameObject.transform.rotation);
-        rangeSphere.GetComponent<Range>().DisplayRange(range + 5);
+        rangeSphere.GetComponent<Range>().DisplayRange(range);
     }
 
     public void ClearRange()
@@ -94,7 +94,7 @@ public class UIManager : MonoBehaviour
             {
                 buildPanel.SetActive(!show);
                 infoPanel.SetActive(show);
-                DisplayRange(15f);
+                DisplayRange(selected.tower.GetComponent<SphereCollider>().radius * 2);
             }
         }
         else
