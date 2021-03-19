@@ -27,6 +27,10 @@ public class Base : MonoBehaviour
         else
             Death();
     }
+    public void GotCoins(int coins){
+        Currency += coins;
+        UIManager.Instance.UpdateCoins(Currency);
+    }
     void Death()
     {
         Health = 0;

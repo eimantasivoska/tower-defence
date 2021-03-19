@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour { 
     public float Health { private set; get; }
     public float Damage { private set; get; }
+    public int CoinDrop {private set; get;}
 
     NavMeshAgent navAgent;
 
@@ -23,15 +24,16 @@ public class Enemy : MonoBehaviour {
     /// </summary>
     /// <param name="health">Health points</param>
     /// <param name="damage">Damage</param>
-    public void Initialize(float health, float damage)
+    public void Initialize(float health, float damage, int coinDrop)
     {
         Health = health;
         Damage = damage;
+        CoinDrop = coinDrop;
     }
     public void TakeDamage(float amount){
         Health -= amount;
         if(Health <= 0){
-            Die();
+            Killed();
         }
     }
     private void OnTriggerEnter(Collider col)
@@ -48,12 +50,18 @@ public class Enemy : MonoBehaviour {
             Towers.Remove(col.gameObject);
         }
     }
-    private void Die()
+    public void Die()
     {
         foreach(GameObject t in Towers)
         {
             t.GetComponent<Tower>().SetDead(gameObject);
         }
+        WaveManager.Instance.EnemyDied(gameObject);
         Destroy(gameObject);
+    }
+
+    public void Killed(){
+        WaveManager.Instance.baseObj.GotCoins(CoinDrop);
+        Die();
     }
 }

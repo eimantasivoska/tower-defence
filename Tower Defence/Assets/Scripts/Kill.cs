@@ -17,7 +17,7 @@ public class Kill : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             float damage = col.gameObject.GetComponent<Enemy>().Damage;
-            Destroy(col.gameObject);
+            col.GetComponent<Enemy>().Die();
             baseObject.GetComponent<Base>().TakeDamage(damage);
         }
     }

@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
         enemyObj.name = "Enemy " + ++enemyCount;
         Enemy e = enemyObj.GetComponent<Enemy>();
         System.Random r = new System.Random();
-        e.Initialize(10f, 10f);
+        //e.Initialize(10f, 10f);
         StartCoroutine(Spawn(time));
     }
 }

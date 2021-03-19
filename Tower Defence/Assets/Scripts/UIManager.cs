@@ -5,9 +5,15 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { set; get; }
 
+    [Header("UI elements")]
     [SerializeField]
     TextMeshProUGUI healthText;
     [SerializeField]
+    TextMeshProUGUI coinsText;
+    [SerializeField]
+    [Space]
+
+    [Header("Prefabs")]
     GameObject rangeSpherePrefab;
     [SerializeField]
     GameObject[] TowerPrefabs;
@@ -15,6 +21,8 @@ public class UIManager : MonoBehaviour
     GameObject rangeSphere;
 
     Node selected;
+
+    [Header("UI Panels")]
 
     [SerializeField]
     GameObject buildPanel;
@@ -40,6 +48,9 @@ public class UIManager : MonoBehaviour
     public void UpdateHealth(int health)
     {
         healthText.text = health.ToString();
+    }
+    public void UpdateCoins(int coins){
+        coinsText.text = $"{coins/100}{coins%100/10}{coins%10}";
     }
 
     public void OnNodeSelected(Node node)
