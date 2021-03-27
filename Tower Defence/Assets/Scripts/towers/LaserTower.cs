@@ -15,6 +15,10 @@ public class LaserTower : Tower
             Enemy e = Enemy.GetComponent<Enemy>();
             e.TakeDamage(Damage);
         }
+        else
+        {
+            laser.SetPosition(1, gameObject.transform.position + offset);
+        }
     }
 
     protected override void Initialize()
@@ -25,4 +29,5 @@ public class LaserTower : Tower
         laser.SetPosition(0, gameObject.transform.position + offset);
         laser.SetPosition(1, gameObject.transform.position + offset);
     }
+
 }

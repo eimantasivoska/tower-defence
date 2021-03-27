@@ -9,6 +9,7 @@ public abstract class Tower : MonoBehaviour
     protected float AttackCooldown;
     AttackMode Mode;
     protected List<GameObject> Enemies;
+    protected GameObject Target;
     abstract protected void Initialize();
     protected void Start()
     {
@@ -36,12 +37,15 @@ public abstract class Tower : MonoBehaviour
             switch (Mode)
             {
                 case AttackMode.First:
-                    AttackEnemy(Enemies[0]);
+                    Target=Enemies[0];
                     break;
                 case AttackMode.Last:
-                    AttackEnemy(Enemies[Enemies.Count - 1]);
+                    Target=Enemies[Enemies.Count - 1];
                     break;
             }
+        else
+            Target=null;
+        AttackEnemy(Target);
     }
     protected void ChangeMode(AttackMode a)
     {
