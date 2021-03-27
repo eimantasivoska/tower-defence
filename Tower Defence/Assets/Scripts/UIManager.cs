@@ -86,6 +86,12 @@ public class UIManager : MonoBehaviour
         rangeSphere.GetComponent<Range>().DisplayRange(range);
     }
 
+    public void DisplayRange(int towerID)
+    {
+        float range = TowerPrefabs[towerID].GetComponent<SphereCollider>().radius * 2;
+        DisplayRange(range); 
+    }
+
     public void ClearRange()
     {
         if (rangeSphere != null)
