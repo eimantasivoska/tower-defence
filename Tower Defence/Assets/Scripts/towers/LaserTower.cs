@@ -25,6 +25,7 @@ public class LaserTower : Tower
     {
         Damage = 0.05f;
         AttackCooldown = 0.015f;
+        Name = "Laser";
         laser = GetComponent<LineRenderer>();
         laser.SetPosition(0, gameObject.transform.position + offset);
         laser.SetPosition(1, gameObject.transform.position + offset);

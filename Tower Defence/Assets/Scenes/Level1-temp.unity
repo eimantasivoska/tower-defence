@@ -1822,6 +1822,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 258a2a955a7821f448cf7e23ae6f9926, type: 3}
+--- !u!114 &182964072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6523108069138096521, guid: 48bedb8e60bda554fb6b98b81a9d29c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1742979942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &187100793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8288570669517431222, guid: 3b27a41c912bbd1478a03bb95aaf7bb5,
@@ -2641,7 +2653,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -180, y: -235}
+  m_SizeDelta: {x: -20, y: -235}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &235129422
 MonoBehaviour:
@@ -2662,7 +2674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Price
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2696,8 +2708,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7537,8 +7549,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonID: 0
+  PriceText: {fileID: 235129422}
   range: 15
-  price: 0
+  price: 200
   damage: 0
   AttackCooldown: 0
 --- !u!4 &621697933 stripped
@@ -8210,6 +8223,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 258a2a955a7821f448cf7e23ae6f9926, type: 3}
+--- !u!114 &662625892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6523108069424897904, guid: 48bedb8e60bda554fb6b98b81a9d29c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1742979942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &665752164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8908555466150529128, guid: 258a2a955a7821f448cf7e23ae6f9926,
@@ -12961,7 +12986,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -180, y: -235}
+  m_SizeDelta: {x: -20, y: -235}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1056861374
 MonoBehaviour:
@@ -12982,7 +13007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Price
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13016,8 +13041,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -15158,6 +15183,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 258a2a955a7821f448cf7e23ae6f9926, type: 3}
+--- !u!114 &1255784877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6523108068101163270, guid: 48bedb8e60bda554fb6b98b81a9d29c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1742979942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1256113541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19232,7 +19269,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -180, y: -235}
+  m_SizeDelta: {x: -20, y: -235}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1581297521
 MonoBehaviour:
@@ -19287,8 +19324,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -20223,6 +20260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonID: 0
+  PriceText: {fileID: 1581297521}
   range: 200
   price: 0
   damage: 0
@@ -21214,6 +21252,21 @@ PrefabInstance:
       objectReference: {fileID: 1370140614}
     - target: {fileID: 6523108068933091360, guid: 48bedb8e60bda554fb6b98b81a9d29c8,
         type: 3}
+      propertyPath: towerNameText
+      value: 
+      objectReference: {fileID: 1255784877}
+    - target: {fileID: 6523108068933091360, guid: 48bedb8e60bda554fb6b98b81a9d29c8,
+        type: 3}
+      propertyPath: towerRangeText
+      value: 
+      objectReference: {fileID: 182964072}
+    - target: {fileID: 6523108068933091360, guid: 48bedb8e60bda554fb6b98b81a9d29c8,
+        type: 3}
+      propertyPath: towerDamageText
+      value: 
+      objectReference: {fileID: 662625892}
+    - target: {fileID: 6523108068933091360, guid: 48bedb8e60bda554fb6b98b81a9d29c8,
+        type: 3}
       propertyPath: TowerPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 6685175525663610590, guid: acd87ff5de4445949993990cf5855d08,
@@ -21300,6 +21353,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3cb09b95504d5414d9c53f3dd3daf75a,
         type: 3}
+    - target: {fileID: 6523108069377330921, guid: 48bedb8e60bda554fb6b98b81a9d29c8,
+        type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7364320115944939272, guid: 48bedb8e60bda554fb6b98b81a9d29c8,
         type: 3}
       propertyPath: m_Pivot.y
@@ -23207,8 +23265,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonID: 1
+  PriceText: {fileID: 1056861374}
   range: 20
-  price: 0
+  price: 100
   damage: 0
   AttackCooldown: 0
 --- !u!114 &1936831872

@@ -11,6 +11,7 @@ public class CannonTower : Tower
     {
         Damage = 1f;
         AttackCooldown = 0.5f;
+        Name = "Cannon";
     }
     
     protected override void AttackEnemy(GameObject Enemy)

@@ -30,7 +30,23 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject infoPanel;
 
+    [SerializeField]
+    TextMeshProUGUI towerNameText;
+
+    [SerializeField]
+    TextMeshProUGUI towerDamageText;
+
+    [SerializeField]
+    TextMeshProUGUI towerRangeText;
+
     public Vector3 rangeObjectOffset;
+
+    public Base baseObj { get; private set; }
+
+    void Start()
+    {
+        baseObj = GameObject.Find("Base").GetComponent<Base>();
+    }
 
     void Awake()
     {
@@ -66,17 +82,30 @@ public class UIManager : MonoBehaviour
         else
         {
             selected = node;
+            if(node.tower != null)
+            {
+                SetupTowerInfoPanel(node.tower.GetComponent<Tower>());
+            }
             ToggleMenu(true);
         }
     }
 
-    public void OnTowerButtonClick(int i)
+    public void OnTowerButtonClick(int i, int price)
     {
         Node clicked = selected.GetComponent<Node>();
         if(clicked.isBuildable){
-            clicked.tower = Instantiate(TowerPrefabs[i], selected.gameObject.transform.position, selected.gameObject.transform.rotation);
-            ClearRange();
-            ToggleMenu(true);
+            if (baseObj.Currency >= price)
+            {
+                baseObj.SpentCoins(price);
+                clicked.tower = Instantiate(TowerPrefabs[i], selected.gameObject.transform.position, selected.gameObject.transform.rotation);
+                ClearRange();
+                SetupTowerInfoPanel(clicked.tower.GetComponent<Tower>());
+                ToggleMenu(true);
+            }
+            else
+            {
+                print("Not enough money");
+            }
         }
     }
 
@@ -119,5 +148,11 @@ public class UIManager : MonoBehaviour
             buildPanel.SetActive(false);
             infoPanel.SetActive(false);
         }
+    }
+    private void SetupTowerInfoPanel(Tower tower )
+    {
+        towerNameText.text = tower.Name;
+        towerDamageText.text = tower.Damage.ToString();
+        towerRangeText.text = tower.gameObject.GetComponent<SphereCollider>().radius.ToString();
     }
 }

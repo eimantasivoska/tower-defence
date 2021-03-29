@@ -10,6 +10,8 @@ public class Base : MonoBehaviour
     void Start()
     {
         Health = 100;
+        Currency = 500;
+        UIManager.Instance.UpdateCoins(Currency);
     }
 
     public void Initialize(int health, int currency)
@@ -29,6 +31,11 @@ public class Base : MonoBehaviour
     }
     public void GotCoins(int coins){
         Currency += coins;
+        UIManager.Instance.UpdateCoins(Currency);
+    }
+    public void SpentCoins(int coins)
+    {
+        Currency -= coins;
         UIManager.Instance.UpdateCoins(Currency);
     }
     void Death()

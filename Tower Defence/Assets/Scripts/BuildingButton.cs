@@ -1,11 +1,15 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
+using TMPro;
 
 public class BuildingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,IPointerClickHandler
 {
     [Header("Button")]
     [SerializeField]
     int ButtonID;
+
+    [SerializeField]
+    TextMeshProUGUI PriceText;
 
     [Space]
     [Header("Tower settings")]
@@ -18,10 +22,13 @@ public class BuildingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField]
     float AttackCooldown;
 
-
+    void Start()
+    {
+        PriceText.text = "Price: " + price;
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
-        UIManager.Instance.OnTowerButtonClick(ButtonID);
+        UIManager.Instance.OnTowerButtonClick(ButtonID, price);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

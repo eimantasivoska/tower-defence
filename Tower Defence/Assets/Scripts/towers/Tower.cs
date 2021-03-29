@@ -5,7 +5,8 @@ using UnityEngine;
 public abstract class Tower : MonoBehaviour
 {
     protected enum AttackMode { First, Last }
-    protected float Damage;
+    public float Damage { get; protected set; }
+    public string Name { get; protected set; }
     protected float AttackCooldown;
     AttackMode Mode;
     protected List<GameObject> Enemies;
@@ -62,7 +63,6 @@ public abstract class Tower : MonoBehaviour
     {
         Enemies.Remove(enemy);
     }
-
 }
 
 
