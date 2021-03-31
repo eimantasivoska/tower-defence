@@ -6,6 +6,9 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance {set; get;}
+
+    public delegate void WaveEndHandler();
+    public event WaveEndHandler WaveEnded;
     #region Inspector 
     [SerializeField]
     public int AliveEnemies;
@@ -42,6 +45,9 @@ public class WaveManager : MonoBehaviour
     private List<GameObject> aliveEnemies;
 
     public Base baseObj {get; private set; }
+
+    int enemiesToSpawnThisWave = 0;
+    int killedEnemies = 0;
     #endregion
 
     void Awake(){
@@ -53,7 +59,6 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         Initialize();
-        Run(() => Countdown(), gameStartTime, 1, false);
     }
 
     void Initialize(){
@@ -64,6 +69,8 @@ public class WaveManager : MonoBehaviour
 
     void Countdown(){
         int enemyCount = GetEnemyCountToSpawn();
+        enemiesToSpawnThisWave = enemyCount;
+        killedEnemies = 0;
         CurrentWave++;
         print($"{CurrentWave} wave incomming!");
         Run(() => SpawnEnemy(), spawnCooldown, enemyCount);
@@ -104,15 +111,29 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(Execute(()=> method(), time, count, preOrder));
     }
 
-    public void EnemyDied(GameObject enemy){
-        AliveEnemies--;
-        aliveEnemies.Remove(enemy);
-        if(aliveEnemies.Count == 0){
+    public void StartNextWave()
+    {
+        if (aliveEnemies.Count == 0)
+        {
             Run(() => Countdown(), waveCooldown, 1, false);
+        }
+        else
+        {
+            throw new Exception("There are still some alive enemies");
         }
     }
 
-#region Coroutines
+    public void EnemyDied(GameObject enemy) {
+        AliveEnemies--;
+        killedEnemies++;
+        aliveEnemies.Remove(enemy);
+        if(AliveEnemies == enemiesToSpawnThisWave - killedEnemies)
+        {
+            WaveEnded.Invoke();
+        }
+    }
+
+    #region Coroutines
     IEnumerator Execute(Action method, float time, int count, bool preOrder){
         if(preOrder)
             method();
