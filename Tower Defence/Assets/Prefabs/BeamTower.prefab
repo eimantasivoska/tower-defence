@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1577511550691596486}
   - component: {fileID: 7463729603388496796}
   - component: {fileID: 272618553647459650}
-  m_Layer: 0
-  m_Name: Tower3
+  m_Layer: 2
+  m_Name: BeamTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,10 +221,90 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8380157826906577798, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6733177361254619370, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1599826595754709761, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -466329591000292508, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -208595431880416365, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 281855664364225751, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 00ef3d07f81554644afe9ced570747de,
         type: 3}
       propertyPath: m_Name
       value: Tower3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700725330082129686, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013638940889411661, guid: 00ef3d07f81554644afe9ced570747de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00ef3d07f81554644afe9ced570747de, type: 3}
