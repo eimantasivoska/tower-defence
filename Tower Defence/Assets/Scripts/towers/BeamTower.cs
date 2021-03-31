@@ -22,7 +22,7 @@ public class BeamTower : Tower
 
     protected override void Initialize()
     {
-        Damage = 100f;
+        Damage = 10f;
         AttackCooldown = 2f;
         Name = "Lightning";
         //Lightning = GameObject.Find("lightning").GetComponent<LineRenderer>();
@@ -46,7 +46,10 @@ public class BeamTower : Tower
         laser.SetPosition(13, Enemy.transform.position - this.transform.position);
         yield return new WaitForSeconds(0.1f);
         laser.positionCount = 0;
-        Enemy e = Enemy.GetComponent<Enemy>();
-        e.TakeDamage(Damage);
+        if (Enemy != null)
+        {
+            Enemy e = Enemy.GetComponent<Enemy>();
+            e.TakeDamage(Damage);
+        }
     }
 }

@@ -11,7 +11,9 @@ public class WaveManager : MonoBehaviour
     public event WaveEndHandler WaveEnded;
     #region Inspector 
     [SerializeField]
-    public int AliveEnemies;
+    int enemiesToSpawnThisWave = 0;
+    [SerializeField]
+    int spawned = 0;
     [SerializeField]
     public int CurrentWave;
 
@@ -46,8 +48,7 @@ public class WaveManager : MonoBehaviour
 
     public Base baseObj {get; private set; }
 
-    int enemiesToSpawnThisWave = 0;
-    int killedEnemies = 0;
+    
     #endregion
 
     void Awake(){
@@ -68,12 +69,12 @@ public class WaveManager : MonoBehaviour
     }
 
     void Countdown(){
-        int enemyCount = GetEnemyCountToSpawn();
-        enemiesToSpawnThisWave = enemyCount;
-        killedEnemies = 0;
+        enemiesToSpawnThisWave = GetEnemyCountToSpawn();
+        int spawn = enemiesToSpawnThisWave;
+        spawned = 0;
         CurrentWave++;
         print($"{CurrentWave} wave incomming!");
-        Run(() => SpawnEnemy(), spawnCooldown, enemyCount);
+        Run(() => SpawnEnemy(), spawnCooldown, spawn);
     }
 
     int GetEnemyCountToSpawn(){
@@ -89,14 +90,15 @@ public class WaveManager : MonoBehaviour
         return enemyBaseCoinDropValue + GetEnemyCountToSpawn();
     }
 
-    void SpawnEnemy() {
-        AliveEnemies++;
-        GameObject obj = Instantiate(enemyPrefab, this.transform);
-        aliveEnemies.Add(obj);
-        Enemy enemy = obj.GetComponent<Enemy>();
+    void SpawnEnemy()
+    {
         float stats = GetEnemyStats();
         int drop = GetEnemyCoinDrop();
+        GameObject obj = Instantiate(enemyPrefab, this.transform);
+        Enemy enemy = obj.GetComponent<Enemy>();
         enemy.Initialize(stats, 10f, drop);
+        aliveEnemies.Add(obj);
+        spawned++;
     }
 
     /// <summary>
@@ -124,10 +126,8 @@ public class WaveManager : MonoBehaviour
     }
 
     public void EnemyDied(GameObject enemy) {
-        AliveEnemies--;
-        killedEnemies++;
         aliveEnemies.Remove(enemy);
-        if(0 == enemiesToSpawnThisWave - killedEnemies)
+        if(spawned == enemiesToSpawnThisWave && aliveEnemies.Count == 0)
         {
             WaveEnded.Invoke();
         }
