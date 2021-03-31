@@ -127,7 +127,7 @@ public class WaveManager : MonoBehaviour
         AliveEnemies--;
         killedEnemies++;
         aliveEnemies.Remove(enemy);
-        if(AliveEnemies == enemiesToSpawnThisWave - killedEnemies)
+        if(0 == enemiesToSpawnThisWave - killedEnemies)
         {
             WaveEnded.Invoke();
         }
