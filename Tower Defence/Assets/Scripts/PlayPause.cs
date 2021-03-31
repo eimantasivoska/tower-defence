@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class PlayPause : MonoBehaviour, IPointerClickHandler
 {
     bool started;
@@ -44,6 +46,10 @@ public class PlayPause : MonoBehaviour, IPointerClickHandler
         inProgress = false;
         buttonImage.sprite = playSprite;
         started = false;
+    }
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
