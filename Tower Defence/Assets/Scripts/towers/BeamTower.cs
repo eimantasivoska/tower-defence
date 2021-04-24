@@ -15,7 +15,6 @@ public class BeamTower : Tower
         if (Enemy != null)
         {
             StartCoroutine(Attack(Enemy));
-
         }
  
     }
@@ -24,7 +23,7 @@ public class BeamTower : Tower
     {
         Damage = 10f;
         AttackCooldown = 2f;
-        Name = "Lightning";
+        Name = "Beam";
         //Lightning = GameObject.Find("lightning").GetComponent<LineRenderer>();
         laser = GetComponent<LineRenderer>();
     }

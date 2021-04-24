@@ -39,11 +39,11 @@ public class WaveManager : MonoBehaviour
     [Space]
     [Header("Temporary")]
     [SerializeField]
-    private GameObject enemyPrefab;
+    private GameObject[] enemyPrefabs;
     #endregion
 
     #region OtherFields
-    
+
     private List<GameObject> aliveEnemies;
 
     public Base baseObj {get; private set; }
@@ -92,9 +92,10 @@ public class WaveManager : MonoBehaviour
 
     void SpawnEnemy()
     {
+        System.Random r = new System.Random();
         float stats = GetEnemyStats();
         int drop = GetEnemyCoinDrop();
-        GameObject obj = Instantiate(enemyPrefab, this.transform);
+        GameObject obj = Instantiate(enemyPrefabs[r.Next(enemyPrefabs.Length)], this.transform);
         Enemy enemy = obj.GetComponent<Enemy>();
         enemy.Initialize(stats, 10f, drop);
         aliveEnemies.Add(obj);
