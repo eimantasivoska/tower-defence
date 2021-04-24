@@ -10783,8 +10783,10 @@ MonoBehaviour:
   enemyHealthStartValue: 5
   enemyBaseCoinDropValue: 10
   WaveStrengthMultiplier: 1.05
-  enemyPrefab: {fileID: 1177370375024388867, guid: 5f247b5378c06204b92c5890caf7ffec,
-    type: 3}
+  enemyPrefabs:
+  - {fileID: 1177370375024388867, guid: 5f247b5378c06204b92c5890caf7ffec, type: 3}
+  - {fileID: 1080948271163077621, guid: ec01f82a000263f40bde85549a528a74, type: 3}
+  - {fileID: 8018128953399649965, guid: 583441cfd1336744eaea97e806f1a6c8, type: 3}
 --- !u!4 &848080372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8908555466150529128, guid: 258a2a955a7821f448cf7e23ae6f9926,
