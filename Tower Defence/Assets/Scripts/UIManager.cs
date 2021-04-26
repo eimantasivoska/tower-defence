@@ -39,6 +39,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI towerRangeText;
+    [SerializeField]
+    GameObject UpgradeButton;
 
     public Vector3 rangeObjectOffset;
 
@@ -153,7 +155,8 @@ public class UIManager : MonoBehaviour
     private void SetupTowerInfoPanel(Tower tower )
     {
         towerNameText.text = tower.Name;
-        towerDamageText.text = (Math.Round(tower.Damage/tower.AttackCooldown, 1)).ToString();
+        towerDamageText.text = (Math.Round(tower.Damage/tower.AttackCooldown, 1)).ToString() + " Dps";
         towerRangeText.text = tower.gameObject.GetComponent<SphereCollider>().radius.ToString();
+        UpgradeButton.GetComponent<TowerUpgradeButton>().SetUp(tower);
     }
 }

@@ -11,7 +11,10 @@ public abstract class Tower : MonoBehaviour
     AttackMode Mode;
     protected List<GameObject> Enemies;
     protected GameObject Target;
+    public int UpgradePrice { get; set; }
     abstract protected void Initialize();
+
+    abstract public void Upgrade();
     protected void Start()
     {
         Enemies = new List<GameObject>();

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,9 @@ public class LaserTower : Tower
 {
     LineRenderer laser;
     public Vector3 offset;
+    override public void Upgrade(){
 
+    }
     protected override void AttackEnemy(GameObject Enemy)
     {
         if (Enemy != null)
