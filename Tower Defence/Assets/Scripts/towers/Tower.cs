@@ -7,7 +7,7 @@ public abstract class Tower : MonoBehaviour
     protected enum AttackMode { First, Last }
     public float Damage { get; protected set; }
     public string Name { get; protected set; }
-    protected float AttackCooldown;
+    public float AttackCooldown { get; protected set; }
     AttackMode Mode;
     protected List<GameObject> Enemies;
     protected GameObject Target;

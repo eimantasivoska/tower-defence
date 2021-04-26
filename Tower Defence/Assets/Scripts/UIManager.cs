@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -152,7 +153,7 @@ public class UIManager : MonoBehaviour
     private void SetupTowerInfoPanel(Tower tower )
     {
         towerNameText.text = tower.Name;
-        towerDamageText.text = tower.Damage.ToString();
+        towerDamageText.text = (Math.Round(tower.Damage/tower.AttackCooldown, 1)).ToString();
         towerRangeText.text = tower.gameObject.GetComponent<SphereCollider>().radius.ToString();
     }
 }
