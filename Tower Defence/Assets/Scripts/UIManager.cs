@@ -100,7 +100,7 @@ public class UIManager : MonoBehaviour
                 clicked.tower = Instantiate(TowerPrefabs[i], selected.gameObject.transform.position, selected.gameObject.transform.rotation);
                 ClearRange();
                 SetupTowerInfoPanel(clicked.tower.GetComponent<Tower>());
-                ToggleMenu(true);
+                ToggleMenu(false);
             }
             else
             {
