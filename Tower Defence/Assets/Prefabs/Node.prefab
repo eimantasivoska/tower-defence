@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d1866cdd5d134f4bae01d60fecfde49, type: 2}
+  - {fileID: 2100000, guid: a0ff0948818302f49bec071d1ed935ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,5 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7756e750932ef249b2c6976822dc412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
   HoverColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   SelectedColor: {r: 0.29411766, g: 0.29411766, b: 0.2901961, a: 1}
