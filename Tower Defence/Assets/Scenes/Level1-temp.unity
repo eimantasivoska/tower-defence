@@ -10515,9 +10515,13 @@ MonoBehaviour:
   spawnCooldown: 1
   waveCooldown: 3
   startingEnemyCount: 3
-  enemyHealthStartValue: 5
-  enemyBaseCoinDropValue: 10
+  enemyHealthStartValue:
+  - 5
+  - 7
+  - 15
+  enemyBaseCoinDropValue: 050000000a0000000f000000
   WaveStrengthMultiplier: 1.05
+  SpawnPoints: 01000000050000000a000000
   enemyPrefabs:
   - {fileID: 1177370375024388867, guid: 5f247b5378c06204b92c5890caf7ffec, type: 3}
   - {fileID: 1080948271163077621, guid: ec01f82a000263f40bde85549a528a74, type: 3}

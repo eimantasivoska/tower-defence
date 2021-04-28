@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+enum EnemyType
+{
+    RedDiamond,
+    GreenSpinner,
+    PinkDiamond
+}
+
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance {set; get;}
@@ -28,11 +35,14 @@ public class WaveManager : MonoBehaviour
     [SerializeField]
     private int startingEnemyCount = 5;
     [SerializeField]
-    private float enemyHealthStartValue = 10f;
+    private float[] enemyHealthStartValue;
     [SerializeField]
-    private int enemyBaseCoinDropValue = 10;
+    private int[] enemyBaseCoinDropValue;
     [SerializeField]
     private float WaveStrengthMultiplier = 1.2f;
+    [SerializeField]
+    private int[] SpawnPoints = { 1, 5, 10 };
+    int baseSpawnPoints = 4;
 
     [Space]
     [Header("Temporary")]
@@ -71,33 +81,83 @@ public class WaveManager : MonoBehaviour
         int spawn = enemiesToSpawnThisWave;
         spawned = 0;
         CurrentWave++;
-        print($"{CurrentWave} wave incomming!");
-        Run(() => SpawnEnemy(), spawnCooldown, spawn);
+        StartCoroutine(Spawn());
+       //Stack<EnemyType> enemiesToSpawn = SpawnList();
+       //print($"{CurrentWave} wave incomming!");
+       //Run(() => SpawnEnemy(enemiesToSpawn.Pop()), spawnCooldown, spawn);
+    }
+
+    IEnumerator Spawn()
+    {
+        Stack<EnemyType> enemiesToSpawn = SpawnList();
+        enemiesToSpawnThisWave = enemiesToSpawn.Count;
+        while (enemiesToSpawn.Count > 0)
+        {
+            print(enemiesToSpawn.Peek());
+            SpawnEnemy(enemiesToSpawn.Pop());
+            yield return new WaitForSeconds(spawnCooldown);
+        }
     }
 
     int GetEnemyCountToSpawn(){
         //return 2 * (CurrentWave - 1) + startingEnemyCount;
         return startingEnemyCount + CurrentWave;
     }
-    float GetEnemyStats(){
-        return CurrentWave * WaveStrengthMultiplier * enemyHealthStartValue;
+    float GetEnemyStats(EnemyType type){
+        print((int)type);
+        return CurrentWave * WaveStrengthMultiplier * enemyHealthStartValue[(int)type];
     }
 
     //Temporary, will be adjusted
-    int GetEnemyCoinDrop(){
-        return enemyBaseCoinDropValue + GetEnemyCountToSpawn();
+    int GetEnemyCoinDrop(EnemyType type){
+        return enemyBaseCoinDropValue[(int)type] + GetEnemyCountToSpawn();
     }
 
-    void SpawnEnemy()
+    Stack<EnemyType> SpawnList()
+    {
+        int spawnPoints = GetSpawnPoints();
+        Stack<EnemyType> stack = new Stack<EnemyType>();
+        while(spawnPoints > 0)
+        {
+            if(spawnPoints > SpawnPoints[2])
+            {
+                stack.Push(EnemyType.PinkDiamond);
+                spawnPoints -= SpawnPoints[2];
+            }
+            else if(spawnPoints > SpawnPoints[1])
+            {
+                stack.Push(EnemyType.GreenSpinner);
+                spawnPoints -= SpawnPoints[1];
+            }
+            else
+            {
+                stack.Push(EnemyType.RedDiamond);
+                spawnPoints--;
+            }
+        }
+        return stack;
+    }
+
+    int GetSpawnPoints()
+    {
+        return CurrentWave - 1 + baseSpawnPoints;
+    }
+
+    void SpawnEnemy(EnemyType type)
     {
         System.Random r = new System.Random();
-        float stats = GetEnemyStats();
-        int drop = GetEnemyCoinDrop();
-        GameObject obj = Instantiate(enemyPrefabs[r.Next(enemyPrefabs.Length)], this.transform);
+        float stats = GetEnemyStats(type);
+        int drop = GetEnemyCoinDrop(type);
+        GameObject obj = Instantiate(enemyPrefabs[(int)type], this.transform);
         Enemy enemy = obj.GetComponent<Enemy>();
         enemy.Initialize(stats, 10f, drop);
         aliveEnemies.Add(obj);
         spawned++;
+    }
+
+    public int WaveReward()
+    {
+        return 50 + 10 * CurrentWave - 1;
     }
 
     /// <summary>
@@ -129,6 +189,7 @@ public class WaveManager : MonoBehaviour
         if(spawned == enemiesToSpawnThisWave && aliveEnemies.Count == 0)
         {
             WaveEnded.Invoke();
+            UIManager.Instance.WaveClearedReward();
         }
     }
 

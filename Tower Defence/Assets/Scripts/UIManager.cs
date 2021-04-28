@@ -159,4 +159,9 @@ public class UIManager : MonoBehaviour
         towerLevelText.text = tower.Level.ToString();
         UpgradeButton.GetComponent<TowerUpgradeButton>().SetUp(tower);
     }
+
+    public void WaveClearedReward()
+    {
+        baseObj.GotCoins(WaveManager.Instance.WaveReward());
+    }
 }
