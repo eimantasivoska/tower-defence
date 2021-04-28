@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    [SerializeField]
+    GameObject panel;
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -12,5 +14,9 @@ public class MainMenuScript : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+    public void Select()
+    {
+        panel.SetActive(true);
     }
 }
