@@ -27,14 +27,8 @@ public class Node : MonoBehaviour
     {
         if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            if(!isBuildable){
+            if(!isBuildable)
                 return;
-            }
-            string msg = transform.position + " cell is " + ((gameObject.tag == "Buildable") ? "" : "not ") + "buildable";
-            msg += "\nIt does " + ((tower == null) ? "not " : "") + " have a tower";
-            //if (gameObject.tag != "Buildable")
-            //    return;
-            Debug.Log(msg);
             if (isSelected)
                 UIManager.Instance.OnNodeSelected(null);
             else
