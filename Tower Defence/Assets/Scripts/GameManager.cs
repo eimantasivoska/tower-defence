@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     Difficulty difficulty;
 
+    int LevelID = -1;
+
     void Awake()
     { 
         if (Instance == null)
@@ -47,5 +49,15 @@ public class GameManager : MonoBehaviour
             default:
                 throw new System.ArgumentException("Invalid diffuculty given");
         }
+    }
+
+    public void SelectLevel(int level)
+    {
+        LevelID = level;
+    }
+
+    public void GetSelectedLevel()
+    {
+        return LevelID;
     }
 }
