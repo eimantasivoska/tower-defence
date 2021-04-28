@@ -19,8 +19,6 @@ public class WaveManager : MonoBehaviour
 
     [Header("Timing")]
     [SerializeField]
-    private float gameStartTime = 5f;
-    [SerializeField]
     private float spawnCooldown = 1f;
     [SerializeField]
     private float waveCooldown = 1f;
