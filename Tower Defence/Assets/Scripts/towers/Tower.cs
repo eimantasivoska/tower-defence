@@ -12,8 +12,8 @@ public abstract class Tower : MonoBehaviour
     protected List<GameObject> Enemies;
     protected GameObject Target;
     public int UpgradePrice { get; set; }
-    static public int Price { get; protected set; }
-    static public float BaseDamage { get; protected set; }
+    public int Price { get; protected set; }
+    public float BaseDamage { get; protected set; }
     protected const float Coefficient = 0.5f;
     public int Level { get; protected set; }
     abstract protected void Initialize();
