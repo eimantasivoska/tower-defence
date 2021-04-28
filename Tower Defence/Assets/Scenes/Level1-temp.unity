@@ -1949,7 +1949,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 34
+  near clip plane: 0.01
   far clip plane: 200
   field of view: 55
   orthographic: 0
@@ -10615,7 +10615,8 @@ MonoBehaviour:
   - 15
   enemyBaseCoinDropValue: 050000000a0000000f000000
   WaveStrengthMultiplier: 1.05
-  SpawnPoints: 01000000050000000a000000
+  SpawnPoints: 010000000a00000064000000
+  baseSpawnPoints: 4
   enemyPrefabs:
   - {fileID: 1177370375024388867, guid: 5f247b5378c06204b92c5890caf7ffec, type: 3}
   - {fileID: 1080948271163077621, guid: ec01f82a000263f40bde85549a528a74, type: 3}

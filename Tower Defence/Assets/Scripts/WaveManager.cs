@@ -42,10 +42,10 @@ public class WaveManager : MonoBehaviour
     private float WaveStrengthMultiplier = 1.2f;
     [SerializeField]
     private int[] SpawnPoints = { 1, 5, 10 };
-    int baseSpawnPoints = 4;
+    [Range(1,10)]
+    public int baseSpawnPoints = 4;
 
     [Space]
-    [Header("Temporary")]
     [SerializeField]
     private GameObject[] enemyPrefabs;
     #endregion
@@ -82,9 +82,6 @@ public class WaveManager : MonoBehaviour
         spawned = 0;
         CurrentWave++;
         StartCoroutine(Spawn());
-       //Stack<EnemyType> enemiesToSpawn = SpawnList();
-       //print($"{CurrentWave} wave incomming!");
-       //Run(() => SpawnEnemy(enemiesToSpawn.Pop()), spawnCooldown, spawn);
     }
 
     IEnumerator Spawn()
@@ -99,7 +96,6 @@ public class WaveManager : MonoBehaviour
     }
 
     int GetEnemyCountToSpawn(){
-        //return 2 * (CurrentWave - 1) + startingEnemyCount;
         return startingEnemyCount + CurrentWave;
     }
     float GetEnemyStats(EnemyType type){
@@ -114,23 +110,28 @@ public class WaveManager : MonoBehaviour
     Stack<EnemyType> SpawnList()
     {
         int spawnPoints = GetSpawnPoints();
+        int sp = spawnPoints;
         Stack<EnemyType> stack = new Stack<EnemyType>();
+        int r = 0, g = 0, p = 0;
         while(spawnPoints > 0)
         {
-            if(spawnPoints > SpawnPoints[2])
+            if(spawnPoints >= SpawnPoints[2])
             {
                 stack.Push(EnemyType.PinkDiamond);
                 spawnPoints -= SpawnPoints[2];
+                p++;
             }
-            else if(spawnPoints > SpawnPoints[1])
+            else if(spawnPoints >= SpawnPoints[1])
             {
                 stack.Push(EnemyType.GreenSpinner);
                 spawnPoints -= SpawnPoints[1];
+                g++;
             }
             else
             {
                 stack.Push(EnemyType.RedDiamond);
                 spawnPoints--;
+                r++;
             }
         }
         return stack;
@@ -138,7 +139,8 @@ public class WaveManager : MonoBehaviour
 
     int GetSpawnPoints()
     {
-        return CurrentWave - 1 + baseSpawnPoints;
+        baseSpawnPoints = (int)(baseSpawnPoints + CurrentWave * GameManager.Instance.GetMultiplier());
+        return baseSpawnPoints;
     }
 
     void SpawnEnemy(EnemyType type)
