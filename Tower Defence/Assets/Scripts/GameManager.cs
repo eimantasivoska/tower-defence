@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         LevelID = level;
     }
 
-    public void GetSelectedLevel()
+    public int GetSelectedLevel()
     {
         return LevelID;
     }
