@@ -35,8 +35,7 @@ public class Base : MonoBehaviour
     public void GotPoints(int points)
     {
         Points += points;
-        print(Points);
-        //UIManager.Instance.UpdatePoints(Points);
+        UIManager.Instance.UpdatePoints(Points);
     }
     public void GotCoins(int coins){
         Currency += coins;

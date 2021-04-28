@@ -10459,6 +10459,7 @@ MonoBehaviour:
   enemyBaseCoinDropValue: 
   WaveStrengthMultiplier: 1.05
   SpawnPoints: 01000000050000000a000000
+  baseSpawnPoints: 4
   enemyPrefabs:
   - {fileID: 1177370375024388867, guid: 5f247b5378c06204b92c5890caf7ffec, type: 3}
   - {fileID: 1080948271163077621, guid: ec01f82a000263f40bde85549a528a74, type: 3}
@@ -26580,10 +26581,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1728185354511482611, guid: 8d10c02821ac6a44f98a798fdb56b332,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1728185354618250534, guid: 8d10c02821ac6a44f98a798fdb56b332,
         type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728185354618250534, guid: 8d10c02821ac6a44f98a798fdb56b332,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1728185354618250539, guid: 8d10c02821ac6a44f98a798fdb56b332,
         type: 3}

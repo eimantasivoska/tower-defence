@@ -40,6 +40,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI towerLevelText;
     [SerializeField]
+    TextMeshProUGUI pointsText;
+    [SerializeField]
     GameObject UpgradeButton;
 
     public Vector3 rangeObjectOffset;
@@ -71,6 +73,10 @@ public class UIManager : MonoBehaviour
     public void UpdateCoins(int coins){
         coinsText.text = $"{coins/100}{coins%100/10}{coins%10}";
     }
+    public void UpdatePoints(int points){
+        pointsText.text = points.ToString();
+    }
+
 
     public void OnNodeSelected(Node node)
     {
