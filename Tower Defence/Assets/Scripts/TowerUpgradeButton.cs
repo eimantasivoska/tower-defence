@@ -60,9 +60,12 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerClickHandler, IPointerE
     }
     private void Clicked()
     {
-        if(UIManager.Instance.baseObj.Currency >= selectedTower.UpgradePrice){
-        selectedTower.Upgrade();
-        SetText(selectedTower.UpgradePrice);
+        if(UIManager.Instance.baseObj.Currency >= selectedTower.UpgradePrice)
+        {
+            UIManager.Instance.baseObj.SpentCoins(selectedTower.UpgradePrice);
+            selectedTower.Upgrade();
+            SetText(selectedTower.UpgradePrice);
+            UIManager.Instance.SetupTowerInfoPanel(selectedTower);
         }
     }
 }

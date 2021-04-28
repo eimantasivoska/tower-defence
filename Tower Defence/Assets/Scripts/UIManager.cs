@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI towerDamageText;
 
     [SerializeField]
-    TextMeshProUGUI towerRangeText;
+    TextMeshProUGUI towerLevelText;
     [SerializeField]
     GameObject UpgradeButton;
 
@@ -152,11 +152,11 @@ public class UIManager : MonoBehaviour
             infoPanel.SetActive(false);
         }
     }
-    private void SetupTowerInfoPanel(Tower tower )
+    public void SetupTowerInfoPanel(Tower tower)
     {
         towerNameText.text = tower.Name;
         towerDamageText.text = (Math.Round(tower.Damage/tower.AttackCooldown, 1)).ToString() + " Dps";
-        towerRangeText.text = tower.gameObject.GetComponent<SphereCollider>().radius.ToString();
+        towerLevelText.text = tower.Level.ToString();
         UpgradeButton.GetComponent<TowerUpgradeButton>().SetUp(tower);
     }
 }

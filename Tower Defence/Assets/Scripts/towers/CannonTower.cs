@@ -7,13 +7,14 @@ public class CannonTower : Tower
     public GameObject BulletPrefab;
     public GameObject Barrel;
     public GameObject ShootPoint;
-    override public void Upgrade(){
 
-    }
     protected override void Initialize()
     {
-        UpgradePrice = 100;
-        Damage = 1f;
+        Level = 1;
+        BaseDamage = 1f;
+        Price = 100;
+        UpgradePrice = Price;
+        Damage = BaseDamage;
         AttackCooldown = 0.5f;
         Name = "Cannon";
     }

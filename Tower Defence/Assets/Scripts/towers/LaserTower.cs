@@ -6,9 +6,7 @@ public class LaserTower : Tower
 {
     LineRenderer laser;
     public Vector3 offset;
-    override public void Upgrade(){
 
-    }
     protected override void AttackEnemy(GameObject Enemy)
     {
         if (Enemy != null)
@@ -25,7 +23,11 @@ public class LaserTower : Tower
 
     protected override void Initialize()
     {
-        Damage = 0.05f;
+        Level = 1;
+        BaseDamage = 0.05f;
+        Price = 200;
+        UpgradePrice = Price;
+        Damage = BaseDamage;
         AttackCooldown = 0.015f;
         Name = "Laser";
         laser = GetComponent<LineRenderer>();

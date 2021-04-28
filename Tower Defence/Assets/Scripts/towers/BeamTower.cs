@@ -8,9 +8,7 @@ public class BeamTower : Tower
     LineRenderer laser;
     LineRenderer Lightning;
     public Vector3 offset;
-    override public void Upgrade(){
 
-    }
     protected override void AttackEnemy(GameObject Enemy)
     {
 
@@ -23,8 +21,11 @@ public class BeamTower : Tower
 
     protected override void Initialize()
     {
-        UpgradePrice = 400;
-        Damage = 10f;
+        Level = 1;
+        BaseDamage = 10f;
+        Price = 400;
+        UpgradePrice = Price;
+        Damage = BaseDamage;
         AttackCooldown = 2f;
         Name = "Beam";
         //Lightning = GameObject.Find("lightning").GetComponent<LineRenderer>();
