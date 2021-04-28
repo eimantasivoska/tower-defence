@@ -93,7 +93,6 @@ public class WaveManager : MonoBehaviour
         enemiesToSpawnThisWave = enemiesToSpawn.Count;
         while (enemiesToSpawn.Count > 0)
         {
-            print(enemiesToSpawn.Peek());
             SpawnEnemy(enemiesToSpawn.Pop());
             yield return new WaitForSeconds(spawnCooldown);
         }
@@ -104,7 +103,6 @@ public class WaveManager : MonoBehaviour
         return startingEnemyCount + CurrentWave;
     }
     float GetEnemyStats(EnemyType type){
-        print((int)type);
         return CurrentWave * WaveStrengthMultiplier * enemyHealthStartValue[(int)type];
     }
 
