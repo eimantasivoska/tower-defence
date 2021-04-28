@@ -24,6 +24,8 @@ public class GameOver : MonoBehaviour
     public void Death()
     {
         Time.timeScale = 0;
+        GameManager.Instance.CheckHighScore(UIManager.Instance.baseObj.Points);
         deathScreen.SetActive(true);
+
     }
 }

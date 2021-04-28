@@ -60,4 +60,20 @@ public class GameManager : MonoBehaviour
     {
         return LevelID;
     }
+
+    public int GetHighScore()
+    {
+        return PlayerPrefs.GetInt(difficulty.ToString() + LevelID.ToString(), 0);
+    }
+    public bool CheckHighScore(int score)
+    {
+        int Score = GetHighScore();
+        if (Score > score)
+            return false;
+        else
+        {
+            PlayerPrefs.SetInt(difficulty.ToString() + LevelID.ToString(), score);
+            return true;
+        }
+    }
 }

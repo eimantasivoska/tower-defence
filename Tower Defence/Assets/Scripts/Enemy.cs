@@ -4,6 +4,7 @@ using UnityEngine.AI;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour { 
+    public float StartHealth { private set; get; }
     public float Health { private set; get; }
     public float Damage { private set; get; }
     public int CoinDrop {private set; get;}
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour {
     /// <param name="damage">Damage</param>
     public void Initialize(float health, float damage, int coinDrop)
     {
+        StartHealth = health;
         Health = health;
         Damage = damage;
         CoinDrop = coinDrop;
@@ -62,6 +64,7 @@ public class Enemy : MonoBehaviour {
 
     public void Killed(){
         WaveManager.Instance.baseObj.GotCoins(CoinDrop);
+        WaveManager.Instance.baseObj.GotPoints((int)StartHealth);
         Die();
     }
 }
