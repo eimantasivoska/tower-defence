@@ -24,7 +24,7 @@ public class LaserTower : Tower
     protected override void Initialize()
     {
         Level = 1;
-        BaseDamage = 0.3f;
+        BaseDamage = 0.9f;
         Price = 200;
         UpgradePrice = Price;
         Damage = BaseDamage;

@@ -11,7 +11,7 @@ public class Base : MonoBehaviour
     void Start()
     {
         Health = 100;
-        Currency = 500;
+        Currency = 200;
         Points = 0;
         UIManager.Instance.UpdateCoins(Currency);
     }

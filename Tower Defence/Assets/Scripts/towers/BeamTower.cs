@@ -22,11 +22,11 @@ public class BeamTower : Tower
     protected override void Initialize()
     {
         Level = 1;
-        BaseDamage = 30f;
+        BaseDamage = 12f;
         Price = 500;
         UpgradePrice = Price;
         Damage = BaseDamage;
-        AttackCooldown = 2f;
+        AttackCooldown = 3f;
         Name = "Beam";
         //Lightning = GameObject.Find("lightning").GetComponent<LineRenderer>();
         laser = GetComponent<LineRenderer>();

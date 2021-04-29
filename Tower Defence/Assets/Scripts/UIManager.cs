@@ -161,7 +161,7 @@ public class UIManager : MonoBehaviour
     public void SetupTowerInfoPanel(Tower tower)
     {
         towerNameText.text = tower.Name;
-        towerDamageText.text = (Math.Round(tower.Damage/tower.AttackCooldown, 1)).ToString() + " Dps";
+        towerDamageText.text = (Math.Round(tower.Damage/tower.AttackCooldown, 0)).ToString() + " Dps";
         towerLevelText.text = tower.Level.ToString();
         UpgradeButton.GetComponent<TowerUpgradeButton>().SetUp(tower);
     }
