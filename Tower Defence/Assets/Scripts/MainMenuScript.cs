@@ -9,7 +9,7 @@ public class MainMenuScript : MonoBehaviour
     GameObject panel;
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(GameManager.Instance.GetSelectedLevel());
     }
     public void ExitGame()
     {
