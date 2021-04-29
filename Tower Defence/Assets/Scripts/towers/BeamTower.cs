@@ -22,8 +22,8 @@ public class BeamTower : Tower
     protected override void Initialize()
     {
         Level = 1;
-        BaseDamage = 10f;
-        Price = 400;
+        BaseDamage = 30f;
+        Price = 500;
         UpgradePrice = Price;
         Damage = BaseDamage;
         AttackCooldown = 2f;

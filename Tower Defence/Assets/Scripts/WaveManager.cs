@@ -56,7 +56,7 @@ public class WaveManager : MonoBehaviour
 
     public Base baseObj {get; private set; }
 
-    
+    bool waveEnded = true;
     #endregion
 
     void Awake(){
@@ -81,6 +81,7 @@ public class WaveManager : MonoBehaviour
         int spawn = enemiesToSpawnThisWave;
         spawned = 0;
         CurrentWave++;
+        waveEnded = false;
         StartCoroutine(Spawn());
     }
 
@@ -157,9 +158,8 @@ public class WaveManager : MonoBehaviour
 
     public int WaveReward()
     {
-        return 50 + 10 * CurrentWave - 1;
+        return 50 + 10 * (CurrentWave - 1);
     }
-
     /// <summary>
     /// Method to execute a another method multiple times
     /// </summary>
@@ -186,8 +186,9 @@ public class WaveManager : MonoBehaviour
 
     public void EnemyDied(GameObject enemy) {
         aliveEnemies.Remove(enemy);
-        if(spawned == enemiesToSpawnThisWave && aliveEnemies.Count == 0)
+        if(spawned == enemiesToSpawnThisWave && aliveEnemies.Count == 0 && !waveEnded)
         {
+            waveEnded = true;
             WaveEnded.Invoke();
             UIManager.Instance.WaveClearedReward();
         }

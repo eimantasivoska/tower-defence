@@ -168,7 +168,8 @@ public class UIManager : MonoBehaviour
 
     public void WaveClearedReward()
     {
-        baseObj.GotCoins(WaveManager.Instance.WaveReward());
-        baseObj.GotPoints(WaveManager.Instance.WaveReward());
+        int reward = WaveManager.Instance.WaveReward();
+        baseObj.GotCoins(reward);
+        baseObj.GotPoints(reward);
     }
 }

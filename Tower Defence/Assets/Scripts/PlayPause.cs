@@ -31,7 +31,7 @@ public class PlayPause : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Time.timeScale = 1;
+            Time.timeScale = 10;
             buttonImage.sprite = pauseSprite;
             started = true;
             if (!inProgress)

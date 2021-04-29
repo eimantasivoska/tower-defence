@@ -14,21 +14,24 @@ public class GameManager : MonoBehaviour
     [Range(1f, 3f)]
     public float EasyModifier = 1f;
     [Range(1f, 3f)]
-    public float MediumModifier = 1.5f;
+    public float MediumModifier = 1.2f;
     [Range(1f, 3f)]
-    public float HardModifier = 2f;
+    public float HardModifier = 1.5f;
 
     Difficulty difficulty;
 
     int LevelID = -1;
 
+    void Start(){
+        difficulty = Difficulty.Easy;
+   }
     void Awake()
     { 
         if (Instance == null)
             Instance = this;
         else
             Destroy(this);
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void SetDifficulty(Difficulty dif)

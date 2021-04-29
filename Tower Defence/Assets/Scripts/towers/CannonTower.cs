@@ -11,7 +11,7 @@ public class CannonTower : Tower
     protected override void Initialize()
     {
         Level = 1;
-        BaseDamage = 1f;
+        BaseDamage = 1.5f;
         Price = 100;
         UpgradePrice = Price;
         Damage = BaseDamage;

@@ -29,6 +29,9 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerClickHandler, IPointerE
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if(selectedTower.Level == 5){
+            return;
+        }
         switch (eventData.button)
         {
             case PointerEventData.InputButton.Left:
@@ -41,6 +44,9 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerClickHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if(selectedTower.Level == 5){
+            return;
+        }
         buttonLabel.color = background;
         buttonBackground.color = border;
     }
@@ -48,6 +54,9 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerClickHandler, IPointerE
     public void OnPointerExit(PointerEventData eventData)
     {
         buttonLabel.color = labelStart;
+        if(selectedTower.Level == 5){
+            return;
+        }
         buttonBackground.color = background;
     }
 
@@ -56,7 +65,12 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerClickHandler, IPointerE
     }
     public void SetUp(Tower tower){
         selectedTower = tower;
-        SetText(tower.UpgradePrice);
+        if(selectedTower.Level == 5){
+            buttonLabel.text = "Max level";
+        }
+        else{
+            SetText(tower.UpgradePrice);
+        }
     }
     private void Clicked()
     {
@@ -66,6 +80,11 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerClickHandler, IPointerE
             selectedTower.Upgrade();
             SetText(selectedTower.UpgradePrice);
             UIManager.Instance.SetupTowerInfoPanel(selectedTower);
+            if(selectedTower.Level == 5){
+                 buttonBackground.color = background;
+                 buttonLabel.color = labelStart;
+                 return;
+            }
         }
     }
 }

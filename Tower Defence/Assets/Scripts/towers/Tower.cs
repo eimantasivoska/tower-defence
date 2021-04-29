@@ -21,13 +21,13 @@ public abstract class Tower : MonoBehaviour
 
     public void Upgrade(){
         UpgradePrice += (int)(Price * Coefficient);
-        Damage += BaseDamage * Coefficient;
+        Damage += Damage * Coefficient;
         Level++;
     }
     protected void Start()
     {
-        Enemies = new List<GameObject>();
         Initialize();
+        Enemies = new List<GameObject>();
         StartCoroutine(Attack());
     }
     private void OnTriggerEnter(Collider col)
