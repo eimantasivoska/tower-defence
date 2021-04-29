@@ -24,11 +24,11 @@ public class LaserTower : Tower
     protected override void Initialize()
     {
         Level = 1;
-        BaseDamage = 0.9f;
+        BaseDamage = 0.25f;
         Price = 200;
         UpgradePrice = Price;
         Damage = BaseDamage;
-        AttackCooldown = 0.015f;
+        AttackCooldown = 0.03f;
         Name = "Laser";
         laser = GetComponent<LineRenderer>();
         laser.SetPosition(0, gameObject.transform.position + offset);
