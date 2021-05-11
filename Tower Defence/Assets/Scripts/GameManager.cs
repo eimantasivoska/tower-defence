@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum Difficulty
 {
@@ -22,9 +20,11 @@ public class GameManager : MonoBehaviour
 
     int LevelID = -1;
 
-    void Start(){
+    void Start()
+    {
         difficulty = Difficulty.Easy;
-   }
+    }
+
     void Awake()
     { 
         if (Instance == null)
