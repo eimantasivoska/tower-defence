@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
         else
-            Destroy(this);
+            Destroy(gameObject);
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
             case Difficulty.Hard:
                 return HardModifier;
             default:
-                throw new System.ArgumentException("Invalid diffuculty given");
+                throw new System.ArgumentException("Invalid difficulty given");
         }
     }
 

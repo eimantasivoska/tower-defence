@@ -1,6 +1,8 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
@@ -20,7 +22,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-        Volume = 1;
         InitializeSounds();
         LoadVolumeState();
     }
@@ -33,19 +34,30 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     Slider slider = null;
     [SerializeField]
-    Sound[] Sounds = new Sound[0];
+    Sound[] Sounds = new Sound[1];
     #endregion
 
+    Button optionsButton;
+    Button optionsBackButton;
+
+
+    // For playing the music loop use this delay
+    //float delay = Sounds[0].Source.clip.length / Sounds[0].Source.pitch - 0.07f; 
 
     void Start()
     {
-        float delay = Sounds[0].Clip.length - 0.07f; // For playing the music loop use this delay
+        SceneManager.activeSceneChanged += SceneChanged;
     }
 
     void PlaySound(string name, float delay = 0)
     {
-        AudioSource s = Array.Find(Sounds, sound => sound.Name == name).Source;
-        s.PlayDelayed(delay);
+        Sound s = Array.Find(Sounds, sound => sound.Name == name);
+        if(s == null)
+        {
+            Debug.LogError($"Sound clip with the name \"{name}\" was not found!");
+            return;
+        }
+        s.Source.PlayDelayed(delay);
     }
 
     void InitializeSounds()
@@ -57,6 +69,8 @@ public class AudioManager : MonoBehaviour
             s.Source.volume = Volume;
             s.Source.loop = s.Loop;
             s.Source.volume = s.MaxVolume;
+            s.Source.pitch = s.Pitch;
+            s.Source.playOnAwake = false;
         }
     }
 
@@ -78,8 +92,21 @@ public class AudioManager : MonoBehaviour
             PlayerPrefs.SetFloat("volume", slider.value);
     }
 
-    void LoadVolumeState()
+    public void LoadVolumeState()
     {
+        optionsBackButton = GameObject.Find("ExitButton").GetComponent<Button>();
+        optionsBackButton.onClick.AddListener(delegate { SaveVolumeState(); });
         slider.value = PlayerPrefs.GetFloat("volume", 0.3f);
+    }
+
+    void SceneChanged(Scene arg0, Scene arg1)
+    {
+        if (arg1.name.Equals("MainMenu"))
+        {
+            slider = GameObject.Find("Canvas").GetComponentInChildren<Slider>(true);
+            optionsButton = GameObject.Find("OptionsButton").GetComponent<Button>();
+            optionsButton.onClick.AddListener(delegate { LoadVolumeState(); });
+            slider.onValueChanged.AddListener(delegate { ChangeVolume(slider); });
+        }
     }
 }
