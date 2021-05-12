@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
             s.Source.clip = s.Clip;
             s.Source.volume = Volume;
             s.Source.loop = s.Loop;
-            s.Source.volume = s.Volume;
+            s.Source.volume = s.MaxVolume;
         }
     }
 
@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
     void ChangeVolume()
     {
         foreach (Sound s in Sounds)
-            s.Source.volume = Volume;
+            s.Source.volume = s.MaxVolume * Volume;
     }
 
     public void SaveVolumeState()

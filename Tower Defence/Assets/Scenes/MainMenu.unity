@@ -1215,17 +1215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a91c973e9ea384bb812e2f97088ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sounds:
-  - Name: MusicStart
-    Clip: {fileID: 8300000, guid: 61aed9a669890f54cbc15a86af60765a, type: 3}
-    Volume: 0.2
-    Loop: 0
-    Source: {fileID: 0}
-  - Name: MusicLoop
-    Clip: {fileID: 8300000, guid: 9baf2a0e37c7c9145afc8f44b9b6e85f, type: 3}
-    Volume: 0.2
-    Loop: 1
-    Source: {fileID: 0}
+  slider: {fileID: 581935161}
+  Sounds: []
 --- !u!4 &546009433
 Transform:
   m_ObjectHideFlags: 0
@@ -1635,6 +1626,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1230087736}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 546009432}
+        m_MethodName: SaveVolumeState
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
