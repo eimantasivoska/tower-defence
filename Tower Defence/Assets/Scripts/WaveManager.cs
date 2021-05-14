@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using System.IO;
+
 
 enum EnemyType
 {
@@ -68,6 +70,12 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         Initialize();
+    //    Bangos taškų didėjimo testavimas.
+    //    using(var w = new StreamWriter("D:\\Test.csv"))
+    //    {
+    //        for(int i=1; i <= 200; i++)
+    //           w.WriteLine(string.Format("{0},{1}", i, GetSpawnPoints(i)));
+    //   }
     }
 
     void Initialize(){
@@ -110,7 +118,7 @@ public class WaveManager : MonoBehaviour
 
     Stack<EnemyType> SpawnList()
     {
-        int spawnPoints = GetSpawnPoints();
+        int spawnPoints = GetSpawnPoints(CurrentWave);
         int sp = spawnPoints;
         Stack<EnemyType> stack = new Stack<EnemyType>();
         int r = 0, g = 0, p = 0;
@@ -138,9 +146,9 @@ public class WaveManager : MonoBehaviour
         return stack;
     }
 
-    int GetSpawnPoints()
+    int GetSpawnPoints(int wave)
     {
-        baseSpawnPoints = (int)(baseSpawnPoints + CurrentWave * GameManager.Instance.GetMultiplier());
+        baseSpawnPoints = (int)(baseSpawnPoints + wave * GameManager.Instance.GetMultiplier());
         return baseSpawnPoints;
     }
 

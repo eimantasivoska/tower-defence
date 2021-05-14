@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 
+
 public class Enemy : MonoBehaviour { 
     public float StartHealth { private set; get; }
     public float Health { private set; get; }
@@ -33,6 +34,8 @@ public class Enemy : MonoBehaviour {
         CoinDrop = coinDrop;
     }
     public void TakeDamage(float amount){
+        // Testing the damage of turrets
+        // print(amount);
         Health -= amount;
         if(Health <= 0){
             Killed();

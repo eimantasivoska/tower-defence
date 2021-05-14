@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 
 public abstract class Tower : MonoBehaviour
 {
@@ -17,8 +18,9 @@ public abstract class Tower : MonoBehaviour
     protected const float Coefficient = 0.5f;
     public int Level { get; protected set; }
     abstract protected void Initialize();
-
-
+    //Variables for attackspeed testing
+    //Stopwatch sw = new Stopwatch();
+    //bool temp = true;
     public void Upgrade(){
         UpgradePrice += (int)(Price * Coefficient);
         Damage += Damage * Coefficient;
@@ -69,6 +71,15 @@ public abstract class Tower : MonoBehaviour
     {
         SelectEnemy();
         yield return new WaitForSeconds(AttackCooldown);
+      //Logic for attackspeed testing
+      //  if(temp == true){
+      //      temp = false;
+      //      sw.Start();
+      //  }else{
+      //      sw.Stop();
+      //      temp = true;
+      //      print(sw.Elapsed);
+      //  }
         StartCoroutine(Attack());
     }
     public void SetDead(GameObject enemy)
