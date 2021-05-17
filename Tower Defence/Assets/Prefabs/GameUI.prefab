@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1549959347701879131}
   - component: {fileID: 3425598500267888673}
   - component: {fileID: 3956963180288844099}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 500}
+  m_AnchoredPosition: {x: 259, y: 495}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3425598500267888673
@@ -73,8 +73,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290228906
+  m_fontColor: {r: 0.6666667, g: 0.69803923, b: 0.7176471, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2253,6 +2253,7 @@ MonoBehaviour:
   infoPanel: {fileID: 1728185354328953289}
   towerNameText: {fileID: 1728185353520016399}
   towerDamageText: {fileID: 1728185353774201465}
+  towerEliminationsText: {fileID: 1728185353866227905}
   towerLevelText: {fileID: 1728185354554803328}
   pointsText: {fileID: 1696462383395116448}
   UpgradeButton: {fileID: 5583622781155442838}
@@ -2758,7 +2759,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7606340878969195898}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5107,7 +5108,7 @@ GameObject:
   - component: {fileID: 7549015048587827283}
   - component: {fileID: 1875040564279963145}
   - component: {fileID: 433250941445051068}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5130,7 +5131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 500}
+  m_AnchoredPosition: {x: -41, y: 495}
   m_SizeDelta: {x: 120, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1875040564279963145
@@ -5169,8 +5170,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290228906
+  m_fontColor: {r: 0.6666667, g: 0.69803923, b: 0.7176471, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

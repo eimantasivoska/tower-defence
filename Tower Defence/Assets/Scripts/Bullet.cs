@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float BulletSpeed = 50f;
     private GameObject Target;
     private Vector3 offset = new Vector3(0f, 0.7f, 0f);
+    Tower tower;
 
     private float Damage;
     void Update()
@@ -29,16 +30,21 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distance, Space.World);
     }
     
-    public void Shoot(GameObject target, float dmg)
+    public void Shoot(GameObject target, float dmg, Tower tower)
     {
         Target = target;
         Damage = dmg;
+        this.tower = tower;
     }
 
     void Hit()
     {
         Enemy e = Target.GetComponent<Enemy>();
-        e.TakeDamage(Damage);
+        if (e.TakeDamage(Damage))
+        {
+            tower.Eliminations++;
+            UIManager.Instance.UpdateEliminations(tower);
+        }
         Destroy(gameObject);
     }
 }

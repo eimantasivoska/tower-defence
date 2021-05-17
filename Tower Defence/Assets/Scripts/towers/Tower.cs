@@ -9,6 +9,7 @@ public abstract class Tower : MonoBehaviour
     public float Damage { get; protected set; }
     public string Name { get; protected set; }
     public float AttackCooldown { get; protected set; }
+    public int Eliminations { get; set; }
     AttackMode Mode;
     protected List<GameObject> Enemies;
     protected GameObject Target;

@@ -33,13 +33,15 @@ public class Enemy : MonoBehaviour {
         Damage = damage;
         CoinDrop = coinDrop;
     }
-    public void TakeDamage(float amount){
+    public bool TakeDamage(float amount){
         // Testing the damage of turrets
         // print(amount);
         Health -= amount;
         if(Health <= 0){
             Killed();
+            return true;
         }
+        return false;
     }
     private void OnTriggerEnter(Collider col)
     {
@@ -70,4 +72,5 @@ public class Enemy : MonoBehaviour {
         WaveManager.Instance.baseObj.GotPoints((int)StartHealth);
         Die();
     }
+
 }

@@ -27,7 +27,7 @@ public class CannonTower : Tower
             Bullet bullet = Bullet.GetComponent<Bullet>();
 
             if (bullet != null){
-                bullet.Shoot(Target, Damage);
+                bullet.Shoot(Target, Damage, this);
             }
         }
     }

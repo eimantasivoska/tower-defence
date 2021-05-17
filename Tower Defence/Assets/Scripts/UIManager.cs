@@ -38,6 +38,9 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI towerDamageText;
 
     [SerializeField]
+    TextMeshProUGUI towerEliminationsText;
+
+    [SerializeField]
     TextMeshProUGUI towerLevelText;
     [SerializeField]
     TextMeshProUGUI pointsText;
@@ -84,6 +87,11 @@ public class UIManager : MonoBehaviour
     public void UpdateWave(int number)
     {
         waveText.text = number.ToString();
+    }
+    public void UpdateEliminations(Tower tower)
+    {
+        if(selected != null && selected.tower != null && selected.tower.GetComponent<Tower>() == tower)
+            towerEliminationsText.text = tower.Eliminations.ToString();
     }
 
     public void OnNodeSelected(Node node)
@@ -171,6 +179,7 @@ public class UIManager : MonoBehaviour
         towerNameText.text = tower.Name;
         towerDamageText.text = (Math.Round(tower.Damage/tower.AttackCooldown, 0)).ToString() + " Dps";
         towerLevelText.text = tower.Level.ToString();
+        towerEliminationsText.text = tower.Eliminations.ToString();
         UpgradeButton.GetComponent<TowerUpgradeButton>().SetUp(tower);
         SellButton.GetComponent<SellButton>().SetUp(tower);
     }

@@ -15,6 +15,7 @@ public class BeamTower : Tower
         if (Enemy != null)
         {
             StartCoroutine(Attack(Enemy));
+
         }
  
     }
@@ -24,6 +25,7 @@ public class BeamTower : Tower
         Level = 1;
         BaseDamage = 12f;
         Price = 500;
+        Eliminations = 0;
         UpgradePrice = Price;
         Damage = BaseDamage;
         AttackCooldown = 3f;
@@ -52,7 +54,11 @@ public class BeamTower : Tower
         if (Enemy != null)
         {
             Enemy e = Enemy.GetComponent<Enemy>();
-            e.TakeDamage(Damage);
+            if (e.TakeDamage(Damage))
+            {
+                Eliminations++;
+                UIManager.Instance.UpdateEliminations(this);
+            }
         }
     }
 }
