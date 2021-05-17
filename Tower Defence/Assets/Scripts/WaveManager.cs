@@ -70,7 +70,7 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         Initialize();
-        test();
+        //test();
     //    Bangos taškų didėjimo testavimas.
     //    using(var w = new StreamWriter("D:\\Test.csv"))
     //    {
@@ -206,16 +206,21 @@ public class WaveManager : MonoBehaviour
     void test()
     {
         CurrentWave = 1;
-        using (var w = new StreamWriter("C:\\Test.csv"))
+        using (var w = new StreamWriter("C:\\Users\\Justinas\\test.csv"))
         {
+            w.WriteLine(String.Format("{0},{1},{2}", EnemyType.RedDiamond,
+                            0, enemyHealthStartValue[(int)EnemyType.RedDiamond]));
+            w.WriteLine(String.Format("{0},{1},{2}", EnemyType.RedDiamond,
+                            0, enemyHealthStartValue[(int)EnemyType.GreenSpinner]));
+            w.WriteLine(String.Format("{0},{1},{2}", EnemyType.RedDiamond,
+                            0, enemyHealthStartValue[(int)EnemyType.PinkDiamond]));
             for (int i = 0; i < 100; i++)
             {
-                w.WriteLine(String.Format("{0},{1},{2}", EnemyType.RedDiamond,
-                            CurrentWave, GetEnemyStats(EnemyType.RedDiamond)));
-                w.WriteLine(String.Format("{0},{1},{2}", EnemyType.GreenSpinner,
-                            CurrentWave, GetEnemyStats(EnemyType.GreenSpinner)));
-                w.WriteLine(String.Format("{0},{1},{2}", EnemyType.PinkDiamond,
-                            CurrentWave, GetEnemyStats(EnemyType.PinkDiamond)));
+                w.WriteLine(String.Format("{0},{1},{2},{3}", CurrentWave,
+                            GetEnemyStats(EnemyType.RedDiamond),
+                            GetEnemyStats(EnemyType.GreenSpinner),
+                            GetEnemyStats(EnemyType.PinkDiamond)));
+                CurrentWave++;
             }
         }
         CurrentWave = 0;
