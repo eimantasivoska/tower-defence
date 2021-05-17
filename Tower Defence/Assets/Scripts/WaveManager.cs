@@ -70,6 +70,7 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         Initialize();
+        test();
     //    Bangos taškų didėjimo testavimas.
     //    using(var w = new StreamWriter("D:\\Test.csv"))
     //    {
@@ -77,7 +78,7 @@ public class WaveManager : MonoBehaviour
     //           w.WriteLine(string.Format("{0},{1}", i, GetSpawnPoints(i)));
     //   }
     }
-
+    
     void Initialize(){
         aliveEnemies = new List<GameObject>();
         baseObj = GameObject.Find("Base").GetComponent<Base>();
@@ -199,9 +200,26 @@ public class WaveManager : MonoBehaviour
             waveEnded = true;
             WaveEnded.Invoke();
             UIManager.Instance.WaveClearedReward();
+            UIManager.Instance.UpdateWave(CurrentWave + 1);
         }
     }
-
+    void test()
+    {
+        CurrentWave = 1;
+        using (var w = new StreamWriter("C:\\Test.csv"))
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                w.WriteLine(String.Format("{0},{1},{2}", EnemyType.RedDiamond,
+                            CurrentWave, GetEnemyStats(EnemyType.RedDiamond)));
+                w.WriteLine(String.Format("{0},{1},{2}", EnemyType.GreenSpinner,
+                            CurrentWave, GetEnemyStats(EnemyType.GreenSpinner)));
+                w.WriteLine(String.Format("{0},{1},{2}", EnemyType.PinkDiamond,
+                            CurrentWave, GetEnemyStats(EnemyType.PinkDiamond)));
+            }
+        }
+        CurrentWave = 0;
+    }
     #region Coroutines
     IEnumerator Execute(Action method, float time, int count, bool preOrder){
         if(preOrder)

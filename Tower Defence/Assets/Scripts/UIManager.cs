@@ -43,6 +43,10 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI pointsText;
     [SerializeField]
     GameObject UpgradeButton;
+    [SerializeField]
+    GameObject SellButton;
+    [SerializeField]
+    TextMeshProUGUI waveText;
 
     public Vector3 rangeObjectOffset;
 
@@ -51,6 +55,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         baseObj = GameObject.Find("Base").GetComponent<Base>();
+        
     }
 
     void Awake()
@@ -76,7 +81,10 @@ public class UIManager : MonoBehaviour
     public void UpdatePoints(int points){
         pointsText.text = points.ToString();
     }
-
+    public void UpdateWave(int number)
+    {
+        waveText.text = number.ToString();
+    }
 
     public void OnNodeSelected(Node node)
     {
@@ -136,7 +144,7 @@ public class UIManager : MonoBehaviour
             Destroy(rangeSphere);
     }
 
-    private void ToggleMenu(bool show)
+    public void ToggleMenu(bool show)
     {
         if (show)
         {
@@ -164,6 +172,7 @@ public class UIManager : MonoBehaviour
         towerDamageText.text = (Math.Round(tower.Damage/tower.AttackCooldown, 0)).ToString() + " Dps";
         towerLevelText.text = tower.Level.ToString();
         UpgradeButton.GetComponent<TowerUpgradeButton>().SetUp(tower);
+        SellButton.GetComponent<SellButton>().SetUp(tower);
     }
 
     public void WaveClearedReward()
