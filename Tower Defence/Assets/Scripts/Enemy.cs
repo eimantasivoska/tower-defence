@@ -61,7 +61,8 @@ public class Enemy : MonoBehaviour {
     {
         foreach(GameObject t in Towers)
         {
-            t.GetComponent<Tower>().SetDead(gameObject);
+            if( t != null)
+                t.GetComponent<Tower>().SetDead(gameObject);
         }
         WaveManager.Instance.EnemyDied(gameObject);
         Destroy(gameObject);
