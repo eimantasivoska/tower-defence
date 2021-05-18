@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Base : MonoBehaviour
 {
@@ -10,9 +8,21 @@ public class Base : MonoBehaviour
 
     void Start()
     {
-        Health = 100;
+        switch (GameManager.Instance.GetDifficulty())
+        {
+            case Difficulty.Easy:
+                Health = 100;
+                break;
+            case Difficulty.Medium:
+                Health = 80;
+                break;
+            case Difficulty.Hard:
+                Health = 50;
+                break;
+        }
         Currency = 200;
         Points = 0;
+        UIManager.Instance.UpdateHealth((int)Health);
         UIManager.Instance.UpdateCoins(Currency);
     }
 

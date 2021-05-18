@@ -39,6 +39,11 @@ public class GameManager : MonoBehaviour
         difficulty = dif;
     }
 
+    public Difficulty GetDifficulty()
+    {
+        return difficulty;
+    }
+
     public float GetMultiplier()
     {
         switch (difficulty)
