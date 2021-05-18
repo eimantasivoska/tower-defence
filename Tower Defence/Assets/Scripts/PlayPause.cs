@@ -15,24 +15,26 @@ public class PlayPause : MonoBehaviour, IPointerClickHandler
     Sprite pauseSprite;
     [SerializeField]
     Image buttonImage;
+    
+    Image background;
+
+    [SerializeField]
+    Color Green;
+    [SerializeField]
+    Color Gray;
     void Start()
     {
+        background = gameObject.GetComponent<Image>();
         started = false;
         inProgress = false;
         WaveManager.Instance.WaveEnded += Ended;
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (started)
+        if (!started)
         {
-            buttonImage.sprite = playSprite;
-            started = false;
-            Time.timeScale = 0;
-        }
-        else
-        {
+            background.color=Gray;
             Time.timeScale = 2;
-            buttonImage.sprite = pauseSprite;
             started = true;
             if (!inProgress)
             {
@@ -43,6 +45,7 @@ public class PlayPause : MonoBehaviour, IPointerClickHandler
     }
     void Ended()
     {
+        background.color=Green;
         inProgress = false;
         buttonImage.sprite = playSprite;
         started = false;

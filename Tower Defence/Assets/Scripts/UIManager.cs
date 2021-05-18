@@ -54,11 +54,13 @@ public class UIManager : MonoBehaviour
     public Vector3 rangeObjectOffset;
 
     public Base baseObj { get; private set; }
-
+    Animator BuildMenuAnimation;
+    Animator InfoMenuAnimation;
     void Start()
     {
         baseObj = GameObject.Find("Base").GetComponent<Base>();
-        
+        BuildMenuAnimation = buildPanel.GetComponent<Animator>();
+        InfoMenuAnimation = infoPanel.GetComponent<Animator>();
     }
 
     void Awake()
@@ -158,20 +160,20 @@ public class UIManager : MonoBehaviour
         {
             if (selected.tower == null)
             {
-                buildPanel.SetActive(show);
-                infoPanel.SetActive(!show);
+                BuildMenuAnimation.SetBool("Open", show);
+                InfoMenuAnimation.SetBool("Open", !show);
             }
             else
             {
-                buildPanel.SetActive(!show);
-                infoPanel.SetActive(show);
+                BuildMenuAnimation.SetBool("Open", !show);
+                InfoMenuAnimation.SetBool("Open", show);
                 DisplayRange(selected.tower.GetComponent<SphereCollider>().radius * 2);
             }
         }
         else
         {
-            buildPanel.SetActive(false);
-            infoPanel.SetActive(false);
+            BuildMenuAnimation.SetBool("Open", false);
+            InfoMenuAnimation.SetBool("Open", false);
         }
     }
     public void SetupTowerInfoPanel(Tower tower)

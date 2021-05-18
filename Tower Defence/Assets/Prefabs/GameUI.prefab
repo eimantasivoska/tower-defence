@@ -1540,13 +1540,14 @@ GameObject:
   - component: {fileID: 1728185353874143960}
   - component: {fileID: 1728185353874143962}
   - component: {fileID: 1728185353874143963}
+  - component: {fileID: 8008348221786688488}
   m_Layer: 5
   m_Name: BuildingMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1728185353874143960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1555,7 +1556,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728185353874143961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1695170276865264178}
@@ -1566,7 +1567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 300, y: 880}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &1728185353874143962
@@ -1606,6 +1607,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8008348221786688488
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728185353874143961}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cef3ffee962832b4290cb46c993729f8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1728185353917731209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,13 +1785,14 @@ GameObject:
   - component: {fileID: 1728185354328953288}
   - component: {fileID: 1728185354328953290}
   - component: {fileID: 1728185354328953291}
+  - component: {fileID: 3436063910653503132}
   m_Layer: 5
   m_Name: TowerInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1728185354328953288
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1797,7 +1818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 300, y: 450}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &1728185354328953290
@@ -1837,6 +1858,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &3436063910653503132
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728185354328953289}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b349e16d32eae7240b29612e6685bddd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1728185354379469973
 GameObject:
   m_ObjectHideFlags: 0
@@ -3810,7 +3850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21698111, g: 0.1709238, b: 0.1709238, a: 1}
+  m_Color: {r: 0.022361899, g: 0.6037736, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3841,6 +3881,8 @@ MonoBehaviour:
   playSprite: {fileID: 21300000, guid: 3b6aa6ea58dcd6e47942c5edcbe07870, type: 3}
   pauseSprite: {fileID: 21300000, guid: abd18af372a438b4f8c9672c523cf753, type: 3}
   buttonImage: {fileID: 5583622782490172552}
+  Green: {r: 0.023529412, g: 0.6039216, b: 0, a: 1}
+  Gray: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
 --- !u!1 &5583622782015532067
 GameObject:
   m_ObjectHideFlags: 0
@@ -4729,7 +4771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21698111, g: 0.1709238, b: 0.1709238, a: 1}
+  m_Color: {r: 0.6226415, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
