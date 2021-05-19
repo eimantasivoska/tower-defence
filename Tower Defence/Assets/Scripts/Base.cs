@@ -61,5 +61,6 @@ public class Base : MonoBehaviour
         Health = 0;
         UIManager.Instance.UpdateHealth((int)Health);
         GameOver.Instance.Death();
+        AudioManager.Instance.PlaySound("gameOverSound");
     }
 }

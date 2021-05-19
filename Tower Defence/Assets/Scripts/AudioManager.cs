@@ -41,12 +41,11 @@ public class AudioManager : MonoBehaviour
     Button optionsBackButton;
 
 
-    // For playing the music loop use this delay
-    //float delay = Sounds[0].Source.clip.length / Sounds[0].Source.pitch - 0.07f; 
 
     void Start()
     {
         SceneManager.activeSceneChanged += SceneChanged;
+        PlayMusic();
     }
 
     /// <summary>
@@ -129,5 +128,11 @@ public class AudioManager : MonoBehaviour
             optionsButton.onClick.AddListener(delegate { LoadVolumeState(); });
             slider.onValueChanged.AddListener(delegate { ChangeVolume(slider); });
         }
+    }
+    public void PlayMusic()
+    {
+        float delay = Sounds[0].Source.clip.length / Sounds[0].Source.pitch - 0.07f;
+        PlaySound("music_start");
+        PlaySound("music_loop", delay);
     }
 }
