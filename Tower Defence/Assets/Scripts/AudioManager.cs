@@ -49,7 +49,12 @@ public class AudioManager : MonoBehaviour
         SceneManager.activeSceneChanged += SceneChanged;
     }
 
-    void PlaySound(string name, float delay = 0)
+    /// <summary>
+    /// Starts playing a sound clip
+    /// </summary>
+    /// <param name="name">Name of the sound clip</param>
+    /// <param name="delay">Delay (if needed)</param>
+    public void PlaySound(string name, float delay = 0)
     {
         Sound s = Array.Find(Sounds, sound => sound.Name == name);
         if(s == null)
@@ -58,6 +63,22 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.Source.PlayDelayed(delay);
+    }
+
+    /// <summary>
+    /// Stops the sound if its playing
+    /// </summary>
+    /// <param name="name">NAme of the sound</param>
+    public void StopSound(string name)
+    {
+        Sound s = Array.Find(Sounds, sound => sound.Name == name);
+        if (s == null)
+        {
+            Debug.LogError($"Sound clip with the name \"{name}\" was not found!");
+            return;
+        }
+        if(s.Source.isPlaying)
+            s.Source.Stop();
     }
 
     void InitializeSounds()
